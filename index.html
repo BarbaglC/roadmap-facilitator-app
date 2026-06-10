@@ -160,26 +160,11 @@
       display: none;
       width: 100%;
       min-height: calc(100vh - var(--topbar-height));
-      padding: 32px 24px;
     }
 
     .view.is-active {
       display: flex;
       flex-direction: column;
-      gap: 24px;
-    }
-
-    /* Placeholder content for views */
-    .view__heading {
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--text-primary);
-      letter-spacing: -0.02em;
-    }
-
-    .view__description {
-      color: var(--text-secondary);
-      font-size: 14px;
     }
 
     /* =====================================================================
@@ -231,6 +216,863 @@
       background: #1d4ed8;
       border-color: #1d4ed8;
     }
+
+    .btn-sm {
+      padding: 4px 10px;
+      font-size: 12px;
+    }
+
+    .btn-icon {
+      padding: 5px 8px;
+      font-size: 13px;
+      min-width: 28px;
+    }
+
+    /* =====================================================================
+       TOOLBAR (shared by vote + prio views)
+       ===================================================================== */
+    .toolbar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 20px;
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+
+    .toolbar__spacer {
+      flex: 1;
+    }
+
+    .toolbar__stat {
+      font-size: 12px;
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+      background: var(--bg-page);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 4px 10px;
+    }
+
+    /* =====================================================================
+       PHASE 1 — BEFORE
+       ===================================================================== */
+    .before-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      padding: 28px 24px;
+    }
+
+    .session-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .session-meta label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .session-meta input {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 5px 10px;
+      background: var(--bg-card);
+      outline: none;
+    }
+
+    .session-meta input:focus {
+      border-color: var(--accent);
+    }
+
+    #inp-session-name {
+      width: 260px;
+    }
+
+    #inp-session-date {
+      width: 150px;
+    }
+
+    .before-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 800px) {
+      .before-columns {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .panel__header {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      font-weight: 600;
+      font-size: 13px;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .panel__body {
+      padding: 16px;
+    }
+
+    /* Drop zone */
+    .drop-zone {
+      border: 2px dashed var(--border);
+      border-radius: var(--radius-md);
+      padding: 32px 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    .drop-zone:hover,
+    .drop-zone.drag-over {
+      border-color: var(--accent);
+      background: var(--accent-dim);
+      color: var(--accent);
+    }
+
+    .drop-zone__icon {
+      font-size: 28px;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .drop-zone__hint {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* Manual entry */
+    .manual-entry {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .manual-entry input {
+      flex: 1;
+      font-family: var(--font);
+      font-size: 13px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 6px 10px;
+      outline: none;
+      color: var(--text-primary);
+      background: var(--bg-card);
+    }
+
+    .manual-entry input:focus {
+      border-color: var(--accent);
+    }
+
+    /* Preview panel */
+    .preview-summary {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-bottom: 10px;
+    }
+
+    .preview-empty {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 13px;
+      padding: 24px 0;
+    }
+
+    .preview-category {
+      margin-bottom: 12px;
+    }
+
+    .preview-cat-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+      cursor: pointer;
+      padding: 2px 6px;
+      border-radius: var(--radius-sm);
+      transition: background 0.12s;
+    }
+
+    .preview-cat-label:hover {
+      background: var(--bg-page);
+    }
+
+    .preview-card {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--bg-card);
+      border-left-width: 3px;
+      margin-bottom: 4px;
+      font-size: 12px;
+    }
+
+    .preview-card__title {
+      flex: 1;
+      font-weight: 500;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .preview-card__del {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1;
+      padding: 2px 4px;
+      border-radius: 3px;
+      transition: color 0.12s, background 0.12s;
+    }
+
+    .preview-card__del:hover {
+      color: var(--grey-action);
+      background: var(--bg-page);
+    }
+
+    .preview-footer {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    /* =====================================================================
+       PHASE 2 — VOTE
+       ===================================================================== */
+    .vote-layout {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+      min-height: 0;
+    }
+
+    .vote-main {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px;
+    }
+
+    .vote-sidebar {
+      width: 220px;
+      flex-shrink: 0;
+      background: var(--bg-sidebar);
+      border-left: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .vote-sidebar__header {
+      padding: 12px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-secondary);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .vote-sidebar__count {
+      background: var(--purple-dim);
+      color: var(--purple);
+      border-radius: 999px;
+      font-size: 11px;
+      padding: 1px 7px;
+      font-family: var(--font-mono);
+    }
+
+    .vote-sidebar__body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 8px;
+    }
+
+    .parked-chip {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 6px 8px;
+      margin-bottom: 6px;
+    }
+
+    .parked-chip__title {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-primary);
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Category group (vote view) */
+    .cat-group {
+      margin-bottom: 16px;
+    }
+
+    .cat-group__header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-secondary);
+    }
+
+    .cat-group__count {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      opacity: 0.7;
+    }
+
+    /* Vote card */
+    .vote-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      border-left-width: 3px;
+      margin-bottom: 6px;
+      transition: box-shadow 0.15s;
+    }
+
+    .vote-card:hover {
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+
+    .vote-card__main {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px;
+    }
+
+    .vote-card__score {
+      font-family: var(--font-mono);
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--green);
+      min-width: 32px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .vote-card__text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .vote-card__title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .vote-card__title.edit-mode {
+      white-space: normal;
+      overflow: visible;
+    }
+
+    .vote-card__desc {
+      font-size: 12px;
+      color: var(--text-secondary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .vote-card__actions {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex-shrink: 0;
+    }
+
+    .vote-card__actions button {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text-secondary);
+      cursor: pointer;
+      font-size: 13px;
+      padding: 3px 7px;
+      font-family: var(--font);
+      transition: background 0.12s, color 0.12s;
+      white-space: nowrap;
+    }
+
+    .vote-card__actions button:hover {
+      background: var(--bg-page);
+      color: var(--text-primary);
+    }
+
+    .vote-card__actions button:disabled {
+      opacity: 0.35;
+      cursor: default;
+    }
+
+    .vote-card__actions button.btn-up:hover {
+      background: var(--green-dim);
+      color: var(--green);
+      border-color: var(--green);
+    }
+
+    .vote-card__actions button.btn-park.is-parked {
+      background: var(--purple-dim);
+      color: var(--purple);
+      border-color: var(--purple);
+    }
+
+    .vote-card__actions button.btn-del:hover {
+      background: var(--cat-light-grey);
+      color: var(--grey-action);
+    }
+
+    /* Expand section */
+    .vote-card__expand {
+      display: none;
+      padding: 8px 10px 10px 52px;
+      border-top: 1px solid var(--border);
+    }
+
+    .vote-card__expand.is-open {
+      display: block;
+    }
+
+    .expand-section {
+      margin-bottom: 10px;
+    }
+
+    .expand-section__label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+
+    .expand-section__label.questions {
+      color: var(--purple);
+    }
+
+    .expand-section__label.decisions {
+      color: var(--green);
+    }
+
+    .expand-list {
+      list-style: none;
+      margin-bottom: 6px;
+    }
+
+    .expand-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-bottom: 3px;
+    }
+
+    .expand-list li::before {
+      content: '●';
+      font-size: 7px;
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+
+    .expand-list.questions li::before {
+      color: var(--purple);
+    }
+
+    .expand-list.decisions li::before {
+      color: var(--green);
+    }
+
+    .expand-input-row {
+      display: flex;
+      gap: 6px;
+    }
+
+    .expand-input-row input {
+      flex: 1;
+      font-family: var(--font);
+      font-size: 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 4px 8px;
+      outline: none;
+      background: var(--bg-card);
+      color: var(--text-primary);
+    }
+
+    .expand-input-row input:focus {
+      border-color: var(--accent);
+    }
+
+    /* Edit inline */
+    .edit-input {
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 600;
+      border: 1px solid var(--accent);
+      border-radius: var(--radius-sm);
+      padding: 3px 7px;
+      outline: none;
+      width: 100%;
+      color: var(--text-primary);
+      background: var(--bg-card);
+    }
+
+    .edit-textarea {
+      font-family: var(--font);
+      font-size: 12px;
+      border: 1px solid var(--accent);
+      border-radius: var(--radius-sm);
+      padding: 3px 7px;
+      outline: none;
+      width: 100%;
+      color: var(--text-secondary);
+      background: var(--bg-card);
+      resize: vertical;
+      min-height: 40px;
+    }
+
+    /* =====================================================================
+       PHASE 3 — PRIORITISE
+       ===================================================================== */
+    .prio-layout {
+      flex: 1;
+      overflow: auto;
+    }
+
+    .prio-columns-wrapper {
+      min-width: max-content;
+      padding: 0;
+    }
+
+    /* Sticky column headers */
+    .prio-col-headers {
+      display: flex;
+      align-items: stretch;
+      border-bottom: 2px solid var(--border);
+      background: var(--bg-card);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .prio-row-label {
+      width: 160px;
+      flex-shrink: 0;
+      padding: 10px 14px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      border-right: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+    }
+
+    .prio-col-header {
+      width: 200px;
+      flex-shrink: 0;
+      padding: 8px 10px;
+      border-right: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .prio-col-header.unprioritised {
+      background: var(--cat-soft-yellow);
+    }
+
+    .prio-col-header__name {
+      flex: 1;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-primary);
+      border: none;
+      background: transparent;
+      font-family: var(--font);
+      outline: none;
+      min-width: 0;
+    }
+
+    .prio-col-header__name:focus {
+      background: var(--bg-card);
+      border-radius: var(--radius-sm);
+      padding: 1px 4px;
+    }
+
+    .prio-col-header__badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      background: var(--bg-page);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 1px 7px;
+      color: var(--text-secondary);
+      flex-shrink: 0;
+    }
+
+    .prio-col-header__del {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-muted);
+      font-size: 14px;
+      padding: 2px;
+      border-radius: 3px;
+      transition: color 0.12s, background 0.12s;
+    }
+
+    .prio-col-header__del:hover {
+      color: var(--grey-action);
+      background: var(--bg-page);
+    }
+
+    /* Add release button in header row */
+    .prio-add-release-header {
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Accordion row */
+    .prio-accordion {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .prio-accordion__header {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border);
+      user-select: none;
+    }
+
+    .prio-accordion__header:hover {
+      background: var(--bg-page);
+    }
+
+    .prio-acc-label {
+      width: 160px;
+      flex-shrink: 0;
+      padding: 8px 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-secondary);
+      border-right: 1px solid var(--border);
+    }
+
+    .prio-acc-chevron {
+      font-size: 11px;
+      transition: transform 0.15s;
+    }
+
+    .prio-accordion.is-collapsed .prio-acc-chevron {
+      transform: rotate(-90deg);
+    }
+
+    .prio-acc-count {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      opacity: 0.6;
+    }
+
+    .prio-accordion__body {
+      display: flex;
+    }
+
+    .prio-accordion.is-collapsed .prio-accordion__body {
+      display: none;
+    }
+
+    .prio-drop-col {
+      width: 200px;
+      flex-shrink: 0;
+      min-height: 60px;
+      padding: 6px;
+      border-right: 1px solid var(--border);
+      transition: background 0.12s;
+    }
+
+    .prio-drop-col.drag-over {
+      background: var(--accent-dim);
+      outline: 2px dashed var(--accent);
+      outline-offset: -2px;
+    }
+
+    /* Prio card (compact, draggable) */
+    .prio-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      border-left-width: 3px;
+      padding: 5px 8px;
+      margin-bottom: 4px;
+      cursor: grab;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      transition: box-shadow 0.12s;
+      user-select: none;
+    }
+
+    .prio-card:hover {
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    .prio-card:active {
+      cursor: grabbing;
+    }
+
+    .prio-card.dragging {
+      opacity: 0.4;
+    }
+
+    .prio-card__title {
+      flex: 1;
+      font-weight: 500;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .prio-card__votes {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--green);
+      flex-shrink: 0;
+    }
+
+    /* =====================================================================
+       VOTE EMPTY STATE
+       ===================================================================== */
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text-muted);
+    }
+
+    .empty-state h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text-secondary);
+    }
+
+    .empty-state p {
+      font-size: 13px;
+    }
+
+    /* =====================================================================
+       MISC UTILITIES
+       ===================================================================== */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: var(--bg-page);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+    }
+
+    /* Scrollbar styling */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(0,0,0,0.15);
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(0,0,0,0.25);
+    }
   </style>
 </head>
 <body>
@@ -239,7 +1081,7 @@
        TOP BAR
        =================================================================== -->
   <header class="topbar">
-    <span class="topbar__title">Roadmap Workshop</span>
+    <span class="topbar__title" id="topbar-title">Roadmap Workshop</span>
     <nav class="tabs" role="tablist" aria-label="Roadmap phases">
       <button class="tab is-active" role="tab" aria-selected="true"  data-view="0">Before</button>
       <button class="tab"           role="tab" aria-selected="false" data-view="1">Vote topics</button>
@@ -254,51 +1096,1259 @@
 
     <!-- View 0 — Before -->
     <div class="view is-active" id="view-0" role="tabpanel">
-      <h1 class="view__heading">Before</h1>
-      <p class="view__description">Set up your roadmap inputs before the workshop begins.</p>
+      <div class="before-layout">
+        <!-- Session meta -->
+        <div class="session-meta">
+          <label for="inp-session-name">Session</label>
+          <input type="text" id="inp-session-name" value="Roadmap Workshop" autocomplete="off" />
+          <label for="inp-session-date">Date</label>
+          <input type="date" id="inp-session-date" />
+        </div>
+
+        <div class="before-columns">
+          <!-- Left: Import -->
+          <div class="panel">
+            <div class="panel__header">
+              <span>Import cards</span>
+            </div>
+            <div class="panel__body">
+              <div class="drop-zone" id="drop-zone" tabindex="0" role="button" aria-label="Upload JSON or HTML file">
+                <span class="drop-zone__icon">📂</span>
+                <div>Drop a <strong>.json</strong> or <strong>.html</strong> file here</div>
+                <div class="drop-zone__hint">or click to browse</div>
+              </div>
+              <input type="file" id="file-input" accept=".json,.html" style="display:none" />
+
+              <div style="margin-top:16px;">
+                <div style="font-size:12px;font-weight:600;color:var(--text-secondary);margin-bottom:8px;">Or add cards manually</div>
+                <div class="manual-entry">
+                  <input type="text" id="manual-card-input" placeholder="Card title…" autocomplete="off" />
+                  <button class="btn btn-sm" id="btn-add-card">Add card</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Preview -->
+          <div class="panel">
+            <div class="panel__header">
+              <span>Preview</span>
+              <button class="btn btn-sm" id="btn-clear-all" style="display:none">Clear all</button>
+            </div>
+            <div class="panel__body" id="preview-body">
+              <div class="preview-empty" id="preview-empty">No cards yet. Import a file or add cards manually.</div>
+            </div>
+            <div id="preview-footer" style="display:none" class="panel__body" style="padding-top:0">
+              <div class="preview-footer">
+                <div class="preview-summary" id="preview-summary"></div>
+                <button class="btn btn-primary" id="btn-start-voting">Start voting →</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- View 1 — Vote topics -->
     <div class="view" id="view-1" role="tabpanel">
-      <h1 class="view__heading">Vote topics</h1>
-      <p class="view__description">Let participants vote on the topics that matter most.</p>
+      <div class="toolbar" id="vote-toolbar">
+        <span class="toolbar__stat" id="vote-stat">0 votes</span>
+        <div class="toolbar__spacer"></div>
+        <button class="btn btn-sm" id="btn-export-excel-vote">Export Excel</button>
+        <button class="btn btn-sm" id="btn-export-html-vote">Export HTML</button>
+        <button class="btn btn-sm btn-primary" id="btn-go-prio">Prioritise →</button>
+      </div>
+      <div class="vote-layout" id="vote-layout">
+        <div class="vote-main" id="vote-main"></div>
+        <aside class="vote-sidebar">
+          <div class="vote-sidebar__header">
+            Parking lot
+            <span class="vote-sidebar__count" id="parking-count">0</span>
+          </div>
+          <div class="vote-sidebar__body" id="parking-body"></div>
+        </aside>
+      </div>
     </div>
 
     <!-- View 2 — Prioritise -->
     <div class="view" id="view-2" role="tabpanel">
-      <h1 class="view__heading">Prioritise</h1>
-      <p class="view__description">Rank and prioritise features based on workshop outcomes.</p>
+      <div class="toolbar" id="prio-toolbar">
+        <span style="font-size:12px;color:var(--text-secondary)">Drag cards into releases to build your roadmap</span>
+        <div class="toolbar__spacer"></div>
+        <button class="btn btn-sm" id="btn-add-release-toolbar">+ Add release</button>
+        <button class="btn btn-sm" id="btn-export-excel-prio">Export Excel</button>
+        <button class="btn btn-sm" id="btn-export-html-prio">Export HTML</button>
+      </div>
+      <div class="prio-layout" id="prio-layout">
+        <div class="prio-columns-wrapper" id="prio-wrapper"></div>
+      </div>
     </div>
 
   </main>
 
   <!-- ===================================================================
-       JAVASCRIPT — Tab switching
+       JAVASCRIPT
        =================================================================== -->
   <script>
-    (function () {
-      const tabs  = document.querySelectorAll('.tab');
-      const views = document.querySelectorAll('.view');
+  (function () {
+    'use strict';
 
-      function activateTab(index) {
-        tabs.forEach(function (tab, i) {
-          const active = i === index;
-          tab.classList.toggle('is-active', active);
-          tab.setAttribute('aria-selected', active ? 'true' : 'false');
-        });
+    // =========================================================================
+    // STATE
+    // =========================================================================
+    const CAT_COLOURS = [
+      { bg: '#dbeafe', border: '#93c5fd' }, // soft blue
+      { bg: '#ede9fe', border: '#c4b5fd' }, // lavender
+      { bg: '#d1fae5', border: '#6ee7b7' }, // mint
+      { bg: '#fef9c3', border: '#fde047' }, // soft yellow
+      { bg: '#f1f5f9', border: '#cbd5e1' }, // light grey
+      { bg: '#ccfbf1', border: '#5eead4' }, // teal
+      { bg: '#e0e7ff', border: '#a5b4fc' }, // indigo
+      { bg: '#ecfccb', border: '#bef264' }, // lime
+    ];
 
-        views.forEach(function (view, i) {
-          view.classList.toggle('is-active', i === index);
-        });
+    const MONTH_NAMES = [
+      'January','February','March','April','May','June',
+      'July','August','September','October','November','December'
+    ];
+
+    let state = {
+      sessionName: 'Roadmap Workshop',
+      sessionDate: todayISO(),
+      topics: [],       // {id, title, desc, category, votes, questions:[], decisions:[], parked}
+      releases: [],     // {id, name, cardIds:[]}
+      catColourMap: {}, // category -> colour index
+      colourCounter: 0,
+      hasUnsavedChanges: false,
+      lastExportTime: null,
+    };
+
+    function todayISO() {
+      const d = new Date();
+      const mm = String(d.getMonth() + 1).padStart(2,'0');
+      const dd = String(d.getDate()).padStart(2,'0');
+      return d.getFullYear() + '-' + mm + '-' + dd;
+    }
+
+    function uid() {
+      return Math.random().toString(36).slice(2, 10);
+    }
+
+    function markDirty() {
+      state.hasUnsavedChanges = true;
+    }
+
+    function getCatColour(cat) {
+      if (!(cat in state.catColourMap)) {
+        state.catColourMap[cat] = state.colourCounter % CAT_COLOURS.length;
+        state.colourCounter++;
+      }
+      return CAT_COLOURS[state.catColourMap[cat]];
+    }
+
+    function esc(str) {
+      return String(str)
+        .replace(/&/g,'&amp;')
+        .replace(/</g,'&lt;')
+        .replace(/>/g,'&gt;')
+        .replace(/"/g,'&quot;')
+        .replace(/'/g,'&#39;');
+    }
+
+    // =========================================================================
+    // TAB SWITCHING
+    // =========================================================================
+    const tabBtns = document.querySelectorAll('.tab');
+    const viewEls = document.querySelectorAll('.view');
+    let activeView = 0;
+
+    function activateTab(index) {
+      activeView = index;
+      tabBtns.forEach(function(tab, i) {
+        const a = i === index;
+        tab.classList.toggle('is-active', a);
+        tab.setAttribute('aria-selected', a ? 'true' : 'false');
+      });
+      viewEls.forEach(function(v, i) {
+        v.classList.toggle('is-active', i === index);
+      });
+      if (index === 1) renderVoteView();
+      if (index === 2) renderPrioView();
+    }
+
+    tabBtns.forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        activateTab(parseInt(tab.dataset.view, 10));
+      });
+    });
+
+    // =========================================================================
+    // BEFOREUNLOAD
+    // =========================================================================
+    window.addEventListener('beforeunload', function(e) {
+      if (state.hasUnsavedChanges) {
+        e.preventDefault();
+        e.returnValue = '';
+      }
+    });
+
+    // =========================================================================
+    // SESSION META INPUTS
+    // =========================================================================
+    const inpName = document.getElementById('inp-session-name');
+    const inpDate = document.getElementById('inp-session-date');
+    inpDate.value = todayISO();
+
+    inpName.addEventListener('input', function() {
+      state.sessionName = inpName.value.trim() || 'Roadmap Workshop';
+      document.getElementById('topbar-title').textContent = state.sessionName;
+      markDirty();
+    });
+
+    inpDate.addEventListener('change', function() {
+      state.sessionDate = inpDate.value;
+      markDirty();
+    });
+
+    // =========================================================================
+    // PHASE 1 — IMPORT
+    // =========================================================================
+    const dropZone = document.getElementById('drop-zone');
+    const fileInput = document.getElementById('file-input');
+    const manualInput = document.getElementById('manual-card-input');
+    const btnAddCard = document.getElementById('btn-add-card');
+    const btnClearAll = document.getElementById('btn-clear-all');
+    const btnStartVoting = document.getElementById('btn-start-voting');
+
+    // Click drop zone -> trigger file input
+    dropZone.addEventListener('click', function() { fileInput.click(); });
+    dropZone.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); fileInput.click(); }
+    });
+
+    dropZone.addEventListener('dragover', function(e) {
+      e.preventDefault();
+      dropZone.classList.add('drag-over');
+    });
+    dropZone.addEventListener('dragleave', function() {
+      dropZone.classList.remove('drag-over');
+    });
+    dropZone.addEventListener('drop', function(e) {
+      e.preventDefault();
+      dropZone.classList.remove('drag-over');
+      const file = e.dataTransfer.files[0];
+      if (file) handleFile(file);
+    });
+
+    fileInput.addEventListener('change', function() {
+      if (fileInput.files[0]) handleFile(fileInput.files[0]);
+      fileInput.value = '';
+    });
+
+    function handleFile(file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const text = e.target.result;
+        if (file.name.endsWith('.json')) {
+          importJSON(text);
+        } else if (file.name.endsWith('.html')) {
+          importHTML(text);
+        } else {
+          alert('Please upload a .json or .html file.');
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    function importJSON(text) {
+      let data;
+      try { data = JSON.parse(text); } catch(e) { alert('Invalid JSON file.'); return; }
+      if (data.sessionName) {
+        state.sessionName = data.sessionName;
+        inpName.value = state.sessionName;
+        document.getElementById('topbar-title').textContent = state.sessionName;
+      }
+      if (data.date) {
+        state.sessionDate = data.date;
+        inpDate.value = data.date;
+      }
+      const topics = Array.isArray(data.topics) ? data.topics : [];
+      topics.forEach(function(t) {
+        addTopic(t.title || 'Untitled', t.desc || t.description || '', t.category || 'Other', t.id);
+      });
+      renderPreview();
+      markDirty();
+    }
+
+    function importHTML(text) {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(text, 'text/html');
+      // Check for archive meta tag
+      const meta = doc.querySelector('meta[name="sr-archive"]');
+      if (!meta) { alert('This HTML file was not exported by Roadmap Workshop.'); return; }
+
+      const metaMeeting = doc.querySelector('meta[name="sr-meeting"]');
+      if (metaMeeting) {
+        state.sessionName = metaMeeting.getAttribute('content') || state.sessionName;
+        inpName.value = state.sessionName;
+        document.getElementById('topbar-title').textContent = state.sessionName;
+      }
+      const metaDate = doc.querySelector('meta[name="sr-date"]');
+      if (metaDate) {
+        state.sessionDate = metaDate.getAttribute('content') || state.sessionDate;
+        inpDate.value = state.sessionDate;
       }
 
-      tabs.forEach(function (tab) {
-        tab.addEventListener('click', function () {
-          const viewIndex = parseInt(tab.dataset.view, 10);
-          activateTab(viewIndex);
+      // Find "All Topics" table — it's identified by id="all-topics-table"
+      const table = doc.querySelector('#all-topics-table');
+      if (!table) { alert('Could not find topics table in this archive.'); return; }
+      const rows = table.querySelectorAll('tbody tr');
+      rows.forEach(function(row) {
+        const cells = row.querySelectorAll('td');
+        if (cells.length >= 3) {
+          const title = cells[0].textContent.trim();
+          const desc  = cells[1].textContent.trim();
+          const cat   = cells[2].textContent.trim();
+          if (title) addTopic(title, desc, cat);
+        }
+      });
+      renderPreview();
+      markDirty();
+    }
+
+    function addTopic(title, desc, category, id) {
+      // Avoid duplicates by id
+      if (id && state.topics.find(function(t){ return t.id === id; })) return;
+      state.topics.push({
+        id: id || uid(),
+        title: title,
+        desc: desc || '',
+        category: category || 'Other',
+        votes: 0,
+        questions: [],
+        decisions: [],
+        parked: false,
+      });
+      getCatColour(category || 'Other'); // ensure colour assigned
+    }
+
+    // Manual card entry
+    btnAddCard.addEventListener('click', function() {
+      const val = manualInput.value.trim();
+      if (!val) return;
+      addTopic(val, '', 'Other');
+      manualInput.value = '';
+      renderPreview();
+      markDirty();
+    });
+
+    manualInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') btnAddCard.click();
+    });
+
+    // Clear all
+    btnClearAll.addEventListener('click', function() {
+      if (!confirm('Clear all cards? This cannot be undone.')) return;
+      state.topics = [];
+      state.catColourMap = {};
+      state.colourCounter = 0;
+      renderPreview();
+      markDirty();
+    });
+
+    // Start voting
+    btnStartVoting.addEventListener('click', function() {
+      activateTab(1);
+    });
+
+    // =========================================================================
+    // PREVIEW RENDER
+    // =========================================================================
+    function renderPreview() {
+      const body = document.getElementById('preview-body');
+      const emptyEl = document.getElementById('preview-empty');
+      const footer = document.getElementById('preview-footer');
+      const summary = document.getElementById('preview-summary');
+
+      const topics = state.topics;
+      btnClearAll.style.display = topics.length ? '' : 'none';
+      footer.style.display = topics.length ? '' : 'none';
+
+      if (!topics.length) {
+        emptyEl.style.display = '';
+        // Remove all category groups
+        body.querySelectorAll('.preview-category').forEach(function(el){ el.remove(); });
+        return;
+      }
+
+      emptyEl.style.display = 'none';
+
+      // Group by category
+      const groups = {};
+      topics.forEach(function(t) {
+        if (!groups[t.category]) groups[t.category] = [];
+        groups[t.category].push(t);
+      });
+
+      // Remove old category groups
+      body.querySelectorAll('.preview-category').forEach(function(el){ el.remove(); });
+
+      // Build summary line
+      const parts = Object.keys(groups).map(function(cat) {
+        return esc(cat) + ' (' + groups[cat].length + ')';
+      });
+      summary.innerHTML = parts.join(' &middot; ');
+
+      // Render groups
+      Object.keys(groups).forEach(function(cat) {
+        const colour = getCatColour(cat);
+        const groupEl = document.createElement('div');
+        groupEl.className = 'preview-category';
+
+        const labelEl = document.createElement('div');
+        labelEl.className = 'preview-cat-label';
+        labelEl.style.background = colour.bg;
+        labelEl.title = 'Click to rename category';
+        labelEl.innerHTML = esc(cat) + ' <span style="opacity:0.5;font-size:10px">✎</span>';
+        labelEl.addEventListener('click', function() {
+          const newName = prompt('Rename category:', cat);
+          if (!newName || newName.trim() === cat) return;
+          const trimmed = newName.trim();
+          state.topics.forEach(function(t) {
+            if (t.category === cat) t.category = trimmed;
+          });
+          // Re-assign colour if new name
+          if (!(trimmed in state.catColourMap)) {
+            state.catColourMap[trimmed] = state.catColourMap[cat];
+          }
+          delete state.catColourMap[cat];
+          renderPreview();
+          markDirty();
+        });
+        groupEl.appendChild(labelEl);
+
+        groups[cat].forEach(function(t) {
+          const card = document.createElement('div');
+          card.className = 'preview-card';
+          card.style.borderLeftColor = colour.border;
+          card.innerHTML = '<span class="preview-card__title">' + esc(t.title) + '</span>';
+          const delBtn = document.createElement('button');
+          delBtn.className = 'preview-card__del';
+          delBtn.textContent = '×';
+          delBtn.title = 'Remove card';
+          delBtn.addEventListener('click', function() {
+            state.topics = state.topics.filter(function(x){ return x.id !== t.id; });
+            renderPreview();
+            markDirty();
+          });
+          card.appendChild(delBtn);
+          groupEl.appendChild(card);
+        });
+
+        body.appendChild(groupEl);
+      });
+    }
+
+    // =========================================================================
+    // PHASE 2 — VOTE VIEW
+    // =========================================================================
+    function totalVotes() {
+      return state.topics.reduce(function(s,t){ return s + t.votes; }, 0);
+    }
+
+    function renderVoteView() {
+      const container = document.getElementById('vote-main');
+      const stat = document.getElementById('vote-stat');
+      stat.textContent = totalVotes() + ' votes';
+
+      const topics = state.topics.filter(function(t){ return !t.parked; });
+      const parked = state.topics.filter(function(t){ return t.parked; });
+
+      // Parking lot sidebar
+      const pkCount = document.getElementById('parking-count');
+      const pkBody  = document.getElementById('parking-body');
+      pkCount.textContent = parked.length;
+      pkBody.innerHTML = '';
+      parked.forEach(function(t) {
+        const chip = document.createElement('div');
+        chip.className = 'parked-chip';
+        chip.innerHTML = '<span class="parked-chip__title">' + esc(t.title) + '</span>';
+        const btn = document.createElement('button');
+        btn.className = 'btn btn-sm';
+        btn.textContent = 'Unpark';
+        btn.addEventListener('click', function() {
+          t.parked = false;
+          markDirty();
+          renderVoteView();
+        });
+        chip.appendChild(btn);
+        pkBody.appendChild(chip);
+      });
+
+      if (!topics.length) {
+        container.innerHTML = '<div class="empty-state"><h3>No cards to vote on</h3><p>Add some cards in the "Before" tab first.</p></div>';
+        return;
+      }
+
+      // Group by category, sort cards by votes desc within each group
+      const groups = {};
+      topics.forEach(function(t) {
+        if (!groups[t.category]) groups[t.category] = [];
+        groups[t.category].push(t);
+      });
+      Object.keys(groups).forEach(function(cat) {
+        groups[cat].sort(function(a,b){ return b.votes - a.votes; });
+      });
+
+      container.innerHTML = '';
+
+      Object.keys(groups).forEach(function(cat) {
+        const colour = getCatColour(cat);
+        const groupEl = document.createElement('div');
+        groupEl.className = 'cat-group';
+
+        const hdr = document.createElement('div');
+        hdr.className = 'cat-group__header';
+        hdr.style.background = colour.bg;
+        hdr.innerHTML = '<span>' + esc(cat) + '</span><span class="cat-group__count">(' + groups[cat].length + ')</span>';
+        groupEl.appendChild(hdr);
+
+        groups[cat].forEach(function(t) {
+          groupEl.appendChild(buildVoteCard(t, colour));
+        });
+
+        container.appendChild(groupEl);
+      });
+    }
+
+    function buildVoteCard(t, colour) {
+      const card = document.createElement('div');
+      card.className = 'vote-card';
+      card.id = 'vcard-' + t.id;
+      card.style.borderLeftColor = colour.border;
+
+      const main = document.createElement('div');
+      main.className = 'vote-card__main';
+
+      const score = document.createElement('div');
+      score.className = 'vote-card__score';
+      score.textContent = t.votes;
+
+      const text = document.createElement('div');
+      text.className = 'vote-card__text';
+
+      const titleEl = document.createElement('div');
+      titleEl.className = 'vote-card__title';
+      titleEl.textContent = t.title;
+
+      const descEl = document.createElement('div');
+      descEl.className = 'vote-card__desc';
+      descEl.textContent = t.desc;
+
+      text.appendChild(titleEl);
+      text.appendChild(descEl);
+
+      // Action buttons
+      const actions = document.createElement('div');
+      actions.className = 'vote-card__actions';
+
+      // Up
+      const btnUp = document.createElement('button');
+      btnUp.className = 'btn-up';
+      btnUp.title = 'Upvote';
+      btnUp.textContent = '+';
+      btnUp.addEventListener('click', function() {
+        t.votes++;
+        markDirty();
+        refreshVoteCard(t, colour);
+        document.getElementById('vote-stat').textContent = totalVotes() + ' votes';
+      });
+
+      // Down
+      const btnDown = document.createElement('button');
+      btnDown.className = 'btn-down';
+      btnDown.title = 'Downvote';
+      btnDown.textContent = '−';
+      btnDown.disabled = t.votes === 0;
+      btnDown.addEventListener('click', function() {
+        if (t.votes > 0) {
+          t.votes--;
+          markDirty();
+          refreshVoteCard(t, colour);
+          document.getElementById('vote-stat').textContent = totalVotes() + ' votes';
+        }
+      });
+
+      // Expand
+      const btnExpand = document.createElement('button');
+      btnExpand.className = 'btn-expand';
+      btnExpand.title = 'Expand notes';
+      btnExpand.textContent = '▾';
+      btnExpand.addEventListener('click', function() {
+        const exp = card.querySelector('.vote-card__expand');
+        const open = exp.classList.toggle('is-open');
+        btnExpand.textContent = open ? '▴' : '▾';
+      });
+
+      // Edit
+      const btnEdit = document.createElement('button');
+      btnEdit.className = 'btn-edit';
+      btnEdit.title = 'Edit';
+      btnEdit.textContent = '✎';
+      btnEdit.addEventListener('click', function() {
+        enterEditMode(card, t, titleEl, descEl, btnEdit);
+      });
+
+      // Park
+      const btnPark = document.createElement('button');
+      btnPark.className = 'btn-park' + (t.parked ? ' is-parked' : '');
+      btnPark.title = t.parked ? 'Unpark' : 'Park';
+      btnPark.textContent = 'P';
+      btnPark.addEventListener('click', function() {
+        t.parked = !t.parked;
+        markDirty();
+        renderVoteView();
+      });
+
+      // Delete
+      const btnDel = document.createElement('button');
+      btnDel.className = 'btn-del';
+      btnDel.title = 'Delete';
+      btnDel.textContent = '×';
+      btnDel.addEventListener('click', function() {
+        if (!confirm('Delete "' + t.title + '"?')) return;
+        state.topics = state.topics.filter(function(x){ return x.id !== t.id; });
+        markDirty();
+        renderVoteView();
+      });
+
+      actions.appendChild(btnUp);
+      actions.appendChild(btnDown);
+      actions.appendChild(btnExpand);
+      actions.appendChild(btnEdit);
+      actions.appendChild(btnPark);
+      actions.appendChild(btnDel);
+
+      main.appendChild(score);
+      main.appendChild(text);
+      main.appendChild(actions);
+      card.appendChild(main);
+
+      // Expand section
+      const expSection = document.createElement('div');
+      expSection.className = 'vote-card__expand';
+      expSection.appendChild(buildExpandSection(t));
+      card.appendChild(expSection);
+
+      return card;
+    }
+
+    function refreshVoteCard(t, colour) {
+      const card = document.getElementById('vcard-' + t.id);
+      if (!card) return;
+      const score = card.querySelector('.vote-card__score');
+      if (score) score.textContent = t.votes;
+      const btnDown = card.querySelector('.btn-down');
+      if (btnDown) btnDown.disabled = t.votes === 0;
+    }
+
+    function buildExpandSection(t) {
+      const frag = document.createDocumentFragment();
+
+      // Questions
+      const qSec = document.createElement('div');
+      qSec.className = 'expand-section';
+      const qLabel = document.createElement('div');
+      qLabel.className = 'expand-section__label questions';
+      qLabel.textContent = 'Open Questions';
+      const qList = document.createElement('ul');
+      qList.className = 'expand-list questions';
+      qList.id = 'qlist-' + t.id;
+      renderNoteList(qList, t.questions, t, 'questions');
+      const qRow = document.createElement('div');
+      qRow.className = 'expand-input-row';
+      const qInput = document.createElement('input');
+      qInput.type = 'text';
+      qInput.placeholder = 'Add question…';
+      const qBtn = document.createElement('button');
+      qBtn.className = 'btn btn-sm';
+      qBtn.textContent = 'Add';
+      qBtn.addEventListener('click', function() {
+        const v = qInput.value.trim();
+        if (!v) return;
+        t.questions.push(v);
+        qInput.value = '';
+        renderNoteList(qList, t.questions, t, 'questions');
+        markDirty();
+      });
+      qInput.addEventListener('keydown', function(e){ if(e.key==='Enter') qBtn.click(); });
+      qRow.appendChild(qInput); qRow.appendChild(qBtn);
+      qSec.appendChild(qLabel); qSec.appendChild(qList); qSec.appendChild(qRow);
+
+      // Decisions
+      const dSec = document.createElement('div');
+      dSec.className = 'expand-section';
+      const dLabel = document.createElement('div');
+      dLabel.className = 'expand-section__label decisions';
+      dLabel.textContent = 'Decisions';
+      const dList = document.createElement('ul');
+      dList.className = 'expand-list decisions';
+      dList.id = 'dlist-' + t.id;
+      renderNoteList(dList, t.decisions, t, 'decisions');
+      const dRow = document.createElement('div');
+      dRow.className = 'expand-input-row';
+      const dInput = document.createElement('input');
+      dInput.type = 'text';
+      dInput.placeholder = 'Add decision…';
+      const dBtn = document.createElement('button');
+      dBtn.className = 'btn btn-sm';
+      dBtn.textContent = 'Add';
+      dBtn.addEventListener('click', function() {
+        const v = dInput.value.trim();
+        if (!v) return;
+        t.decisions.push(v);
+        dInput.value = '';
+        renderNoteList(dList, t.decisions, t, 'decisions');
+        markDirty();
+      });
+      dInput.addEventListener('keydown', function(e){ if(e.key==='Enter') dBtn.click(); });
+      dRow.appendChild(dInput); dRow.appendChild(dBtn);
+      dSec.appendChild(dLabel); dSec.appendChild(dList); dSec.appendChild(dRow);
+
+      frag.appendChild(qSec);
+      frag.appendChild(dSec);
+      return frag;
+    }
+
+    function renderNoteList(listEl, items, t, field) {
+      listEl.innerHTML = '';
+      items.forEach(function(item, idx) {
+        const li = document.createElement('li');
+        li.innerHTML = '<span style="flex:1">' + esc(item) + '</span>';
+        const del = document.createElement('button');
+        del.style.cssText = 'background:none;border:none;cursor:pointer;color:var(--text-muted);font-size:11px;padding:0 2px;';
+        del.textContent = '×';
+        del.addEventListener('click', function() {
+          t[field].splice(idx, 1);
+          renderNoteList(listEl, t[field], t, field);
+          markDirty();
+        });
+        li.appendChild(del);
+        listEl.appendChild(li);
+      });
+    }
+
+    function enterEditMode(card, t, titleEl, descEl, btnEdit) {
+      const inpTitle = document.createElement('input');
+      inpTitle.className = 'edit-input';
+      inpTitle.value = t.title;
+
+      const inpDesc = document.createElement('textarea');
+      inpDesc.className = 'edit-textarea';
+      inpDesc.value = t.desc;
+
+      titleEl.style.display = 'none';
+      descEl.style.display = 'none';
+
+      const textDiv = card.querySelector('.vote-card__text');
+      textDiv.insertBefore(inpTitle, titleEl);
+      textDiv.insertBefore(inpDesc, descEl);
+      inpTitle.focus();
+
+      function save() {
+        t.title = inpTitle.value.trim() || t.title;
+        t.desc  = inpDesc.value.trim();
+        titleEl.textContent = t.title;
+        descEl.textContent  = t.desc;
+        titleEl.style.display = '';
+        descEl.style.display  = '';
+        inpTitle.remove();
+        inpDesc.remove();
+        markDirty();
+      }
+
+      function cancel() {
+        titleEl.style.display = '';
+        descEl.style.display  = '';
+        inpTitle.remove();
+        inpDesc.remove();
+      }
+
+      inpTitle.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') { e.preventDefault(); save(); }
+        if (e.key === 'Escape') { e.preventDefault(); cancel(); }
+      });
+      inpDesc.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') { e.preventDefault(); cancel(); }
+      });
+
+      // Save when focus leaves both inputs
+      function onFocusOut(e) {
+        setTimeout(function() {
+          if (document.activeElement !== inpTitle && document.activeElement !== inpDesc) {
+            inpTitle.removeEventListener('focusout', onFocusOut);
+            inpDesc.removeEventListener('focusout', onFocusOut);
+            if (document.contains(inpTitle)) save();
+          }
+        }, 100);
+      }
+      inpTitle.addEventListener('focusout', onFocusOut);
+      inpDesc.addEventListener('focusout', onFocusOut);
+    }
+
+    // Vote toolbar buttons
+    document.getElementById('btn-export-excel-vote').addEventListener('click', downloadExcel);
+    document.getElementById('btn-export-html-vote').addEventListener('click', downloadSessionHTML);
+    document.getElementById('btn-go-prio').addEventListener('click', function() { activateTab(2); });
+
+    // =========================================================================
+    // PHASE 3 — PRIORITISE VIEW
+    // =========================================================================
+    // Ensure unprioritised always exists as a virtual "release" with id null
+    function getVotedTopics() {
+      return state.topics.filter(function(t){ return t.votes > 0 && !t.parked; });
+    }
+
+    function getPlacedIds() {
+      const placed = new Set();
+      state.releases.forEach(function(r){ r.cardIds.forEach(function(id){ placed.add(id); }); });
+      return placed;
+    }
+
+    function renderPrioView() {
+      const wrapper = document.getElementById('prio-wrapper');
+      wrapper.innerHTML = '';
+
+      const voted = getVotedTopics();
+      const placed = getPlacedIds();
+
+      // Build header row
+      const headerRow = document.createElement('div');
+      headerRow.className = 'prio-col-headers';
+
+      // Row label cell (empty)
+      const rowLabel = document.createElement('div');
+      rowLabel.className = 'prio-row-label';
+      rowLabel.textContent = 'Category';
+      headerRow.appendChild(rowLabel);
+
+      // Unprioritised header
+      const unHdr = document.createElement('div');
+      unHdr.className = 'prio-col-header unprioritised';
+      unHdr.innerHTML = '<span class="prio-col-header__name" style="pointer-events:none">Unprioritised</span>';
+      const unCount = document.createElement('span');
+      unCount.className = 'prio-col-header__badge';
+      const unplacedCount = voted.filter(function(t){ return !placed.has(t.id); }).length;
+      unCount.textContent = unplacedCount;
+      unHdr.appendChild(unCount);
+      headerRow.appendChild(unHdr);
+
+      // Release headers
+      state.releases.forEach(function(rel) {
+        headerRow.appendChild(buildReleaseHeader(rel, voted));
+      });
+
+      // Add release button in header
+      const addBtn = document.createElement('div');
+      addBtn.className = 'prio-add-release-header';
+      const ab = document.createElement('button');
+      ab.className = 'btn btn-sm';
+      ab.textContent = '+ Add release';
+      ab.addEventListener('click', addRelease);
+      addBtn.appendChild(ab);
+      headerRow.appendChild(addBtn);
+
+      wrapper.appendChild(headerRow);
+
+      // Group voted topics by category
+      const groups = {};
+      voted.forEach(function(t) {
+        if (!groups[t.category]) groups[t.category] = [];
+        groups[t.category].push(t);
+      });
+
+      if (!Object.keys(groups).length) {
+        const empty = document.createElement('div');
+        empty.className = 'empty-state';
+        empty.innerHTML = '<h3>No voted topics yet</h3><p>Go to "Vote topics" and add some votes first.</p>';
+        wrapper.appendChild(empty);
+        return;
+      }
+
+      // Accordion per category
+      Object.keys(groups).forEach(function(cat) {
+        const colour = getCatColour(cat);
+        const acc = document.createElement('div');
+        acc.className = 'prio-accordion';
+
+        const accHdr = document.createElement('div');
+        accHdr.className = 'prio-accordion__header';
+
+        const accLabel = document.createElement('div');
+        accLabel.className = 'prio-acc-label';
+        accLabel.style.borderLeftColor = colour.border;
+        accLabel.style.borderLeftWidth = '3px';
+        accLabel.style.borderLeftStyle = 'solid';
+        accLabel.innerHTML = '<span class="prio-acc-chevron">▾</span>'
+          + '<span style="color:' + colour.border + '">' + esc(cat) + '</span>'
+          + '<span class="prio-acc-count">(' + groups[cat].length + ')</span>';
+
+        accHdr.appendChild(accLabel);
+        // Fill remaining header columns with empty cells to align
+        // Unprioritised
+        const emptyUnhdr = document.createElement('div');
+        emptyUnhdr.style.cssText = 'width:200px;flex-shrink:0;border-right:1px solid var(--border);';
+        accHdr.appendChild(emptyUnhdr);
+        state.releases.forEach(function() {
+          const emptyRhdr = document.createElement('div');
+          emptyRhdr.style.cssText = 'width:200px;flex-shrink:0;border-right:1px solid var(--border);';
+          accHdr.appendChild(emptyRhdr);
+        });
+        // Add release placeholder
+        const addReleasePlaceholder = document.createElement('div');
+        addReleasePlaceholder.style.cssText = 'flex:1;';
+        accHdr.appendChild(addReleasePlaceholder);
+
+        accHdr.addEventListener('click', function() {
+          acc.classList.toggle('is-collapsed');
+        });
+
+        const accBody = document.createElement('div');
+        accBody.className = 'accordion__body prio-accordion__body';
+
+        // Unprioritised column
+        const unCol = buildDropCol(null, cat, groups[cat]);
+        accBody.appendChild(unCol);
+
+        // Release columns
+        state.releases.forEach(function(rel) {
+          const relCol = buildDropCol(rel.id, cat, groups[cat]);
+          accBody.appendChild(relCol);
+        });
+
+        // Add release placeholder column
+        const addRelCol = document.createElement('div');
+        addRelCol.style.cssText = 'flex:1;min-height:60px;border-right:1px solid var(--border);';
+        accBody.appendChild(addRelCol);
+
+        acc.appendChild(accHdr);
+        acc.appendChild(accBody);
+        wrapper.appendChild(acc);
+      });
+    }
+
+    function buildReleaseHeader(rel, voted) {
+      const hdr = document.createElement('div');
+      hdr.className = 'prio-col-header';
+      hdr.dataset.relId = rel.id;
+
+      const nameInp = document.createElement('input');
+      nameInp.className = 'prio-col-header__name';
+      nameInp.value = rel.name;
+      nameInp.addEventListener('change', function() {
+        rel.name = nameInp.value.trim() || rel.name;
+        markDirty();
+      });
+
+      const badge = document.createElement('span');
+      badge.className = 'prio-col-header__badge';
+      badge.textContent = rel.cardIds.length;
+
+      const delBtn = document.createElement('button');
+      delBtn.className = 'prio-col-header__del';
+      delBtn.title = 'Delete release';
+      delBtn.textContent = '×';
+      delBtn.addEventListener('click', function() {
+        if (!confirm('Delete release "' + rel.name + '"? Cards will return to Unprioritised.')) return;
+        state.releases = state.releases.filter(function(r){ return r.id !== rel.id; });
+        markDirty();
+        renderPrioView();
+      });
+
+      hdr.appendChild(nameInp);
+      hdr.appendChild(badge);
+      hdr.appendChild(delBtn);
+      return hdr;
+    }
+
+    function buildDropCol(releaseId, cat, catTopics) {
+      const col = document.createElement('div');
+      col.className = 'prio-drop-col';
+      col.dataset.releaseId = releaseId === null ? '__unplaced__' : releaseId;
+      col.dataset.category = cat;
+
+      const placed = getPlacedIds();
+      let cardsHere;
+      if (releaseId === null) {
+        cardsHere = catTopics.filter(function(t){ return !placed.has(t.id); });
+      } else {
+        const rel = state.releases.find(function(r){ return r.id === releaseId; });
+        if (rel) {
+          cardsHere = catTopics.filter(function(t){ return rel.cardIds.includes(t.id); });
+        } else {
+          cardsHere = [];
+        }
+      }
+
+      cardsHere.forEach(function(t) {
+        col.appendChild(buildPrioCard(t));
+      });
+
+      // Drag-and-drop
+      col.addEventListener('dragover', function(e) {
+        e.preventDefault();
+        col.classList.add('drag-over');
+      });
+      col.addEventListener('dragleave', function(e) {
+        if (!col.contains(e.relatedTarget)) col.classList.remove('drag-over');
+      });
+      col.addEventListener('drop', function(e) {
+        e.preventDefault();
+        col.classList.remove('drag-over');
+        const cardId    = e.dataTransfer.getData('text/card-id');
+        const srcRelId  = e.dataTransfer.getData('text/src-rel-id');
+        const tgtRelId  = col.dataset.releaseId;
+        if (!cardId || srcRelId === tgtRelId) return;
+
+        // Remove from source
+        if (srcRelId !== '__unplaced__') {
+          const srcRel = state.releases.find(function(r){ return r.id === srcRelId; });
+          if (srcRel) srcRel.cardIds = srcRel.cardIds.filter(function(id){ return id !== cardId; });
+        }
+        // Add to target
+        if (tgtRelId !== '__unplaced__') {
+          const tgtRel = state.releases.find(function(r){ return r.id === tgtRelId; });
+          if (tgtRel && !tgtRel.cardIds.includes(cardId)) tgtRel.cardIds.push(cardId);
+        }
+        markDirty();
+        renderPrioView();
+      });
+
+      return col;
+    }
+
+    function buildPrioCard(t) {
+      const colour = getCatColour(t.category);
+      const card = document.createElement('div');
+      card.className = 'prio-card';
+      card.style.borderLeftColor = colour.border;
+      card.draggable = true;
+      card.dataset.cardId = t.id;
+
+      card.innerHTML = '<span class="prio-card__title">' + esc(t.title) + '</span>'
+        + '<span class="prio-card__votes">' + t.votes + '</span>';
+
+      // Determine which release this card belongs to (for drag source)
+      let srcRelId = '__unplaced__';
+      const placed = getPlacedIds();
+      if (placed.has(t.id)) {
+        for (const rel of state.releases) {
+          if (rel.cardIds.includes(t.id)) { srcRelId = rel.id; break; }
+        }
+      }
+
+      card.addEventListener('dragstart', function(e) {
+        card.classList.add('dragging');
+        e.dataTransfer.setData('text/card-id', t.id);
+        e.dataTransfer.setData('text/src-rel-id', srcRelId);
+        e.dataTransfer.effectAllowed = 'move';
+      });
+      card.addEventListener('dragend', function() {
+        card.classList.remove('dragging');
+      });
+
+      return card;
+    }
+
+    function addRelease() {
+      const now = new Date();
+      // Figure out next month after existing releases
+      const count = state.releases.length;
+      const monthIdx = (now.getMonth() + 1 + count) % 12;
+      const name = MONTH_NAMES[monthIdx] + ' ' + (now.getFullYear() + Math.floor((now.getMonth() + 1 + count) / 12));
+      state.releases.push({ id: uid(), name: name, cardIds: [] });
+      markDirty();
+      renderPrioView();
+    }
+
+    document.getElementById('btn-add-release-toolbar').addEventListener('click', addRelease);
+    document.getElementById('btn-export-excel-prio').addEventListener('click', downloadExcel);
+    document.getElementById('btn-export-html-prio').addEventListener('click', downloadSessionHTML);
+
+    // =========================================================================
+    // EXPORT — HTML
+    // =========================================================================
+    function downloadSessionHTML() {
+      const voted = state.topics.filter(function(t){ return t.votes > 0 || t.questions.length || t.decisions.length; });
+      voted.sort(function(a,b){ return b.votes - a.votes; });
+
+      const placed = getPlacedIds();
+      const unplaced = voted.filter(function(t){ return !placed.has(t.id); });
+
+      let html = '<!DOCTYPE html>\n<html lang="en">\n<head>\n';
+      html += '<meta charset="UTF-8"/>\n';
+      html += '<meta name="sr-archive" content="true"/>\n';
+      html += '<meta name="sr-date" content="' + esc(state.sessionDate) + '"/>\n';
+      html += '<meta name="sr-meeting" content="' + esc(state.sessionName) + '"/>\n';
+      html += '<title>' + esc(state.sessionName) + ' — Roadmap Archive</title>\n';
+      html += '<style>\n';
+      html += 'body{font-family:system-ui,sans-serif;margin:0;padding:0;background:#f8f9fb;color:#111827;}\n';
+      html += '.hero{background:#fff;border-bottom:1px solid #e5e7eb;padding:32px 40px;}\n';
+      html += '.hero h1{font-size:24px;font-weight:700;margin:0 0 6px;}\n';
+      html += '.hero p{color:#4b5563;font-size:14px;margin:4px 0 0;}\n';
+      html += '.section{max-width:960px;margin:32px auto;padding:0 24px;}\n';
+      html += '.section h2{font-size:17px;font-weight:700;margin:0 0 12px;border-bottom:2px solid #e5e7eb;padding-bottom:6px;}\n';
+      html += '.section h3{font-size:14px;font-weight:600;margin:16px 0 6px;}\n';
+      html += 'table{width:100%;border-collapse:collapse;font-size:13px;}\n';
+      html += 'th{background:#f1f5f9;text-align:left;padding:8px 10px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:#4b5563;border-bottom:2px solid #e5e7eb;}\n';
+      html += 'td{padding:7px 10px;border-bottom:1px solid #f1f5f9;vertical-align:top;}\n';
+      html += 'tr:hover td{background:#fafafa;}\n';
+      html += '.badge{display:inline-block;padding:1px 8px;border-radius:999px;font-size:11px;font-weight:600;background:#dbeafe;color:#1d4ed8;}\n';
+      html += '.footer{text-align:center;padding:32px;font-size:12px;color:#9ca3af;}\n';
+      html += '</style>\n</head>\n<body>\n';
+
+      // Hero
+      html += '<div class="hero">\n';
+      html += '<h1>' + esc(state.sessionName) + '</h1>\n';
+      html += '<p>' + esc(state.sessionDate) + ' &nbsp;|&nbsp; ' + state.topics.length + ' topics &nbsp;|&nbsp; ' + totalVotes() + ' votes</p>\n';
+      html += '</div>\n';
+
+      // Vote Results
+      html += '<div class="section">\n<h2>Vote Results</h2>\n';
+      html += '<table>\n<thead><tr><th>#</th><th>Topic</th><th>Description</th><th>Category</th><th>Votes</th><th>Open Questions</th><th>Decisions</th></tr></thead>\n<tbody>\n';
+      voted.forEach(function(t, i) {
+        html += '<tr><td>' + (i+1) + '</td><td><strong>' + esc(t.title) + '</strong></td><td>' + esc(t.desc)
+          + '</td><td>' + esc(t.category)
+          + '</td><td><span class="badge">' + t.votes + '</span></td>'
+          + '<td>' + t.questions.map(esc).join('<br>') + '</td>'
+          + '<td>' + t.decisions.map(esc).join('<br>') + '</td>'
+          + '</tr>\n';
+      });
+      html += '</tbody>\n</table>\n</div>\n';
+
+      // Release Plan
+      if (state.releases.length) {
+        html += '<div class="section">\n<h2>Release Plan</h2>\n';
+        state.releases.forEach(function(rel) {
+          html += '<h3>' + esc(rel.name) + ' <small style="font-weight:400;color:#6b7280">(' + rel.cardIds.length + ' items)</small></h3>\n';
+          if (!rel.cardIds.length) {
+            html += '<p style="color:#9ca3af;font-size:13px">No items assigned.</p>\n';
+            return;
+          }
+          html += '<table>\n<thead><tr><th>Topic</th><th>Category</th><th>Votes</th></tr></thead>\n<tbody>\n';
+          rel.cardIds.forEach(function(id) {
+            const t = state.topics.find(function(x){ return x.id === id; });
+            if (!t) return;
+            html += '<tr><td><strong>' + esc(t.title) + '</strong></td><td>' + esc(t.category) + '</td><td><span class="badge">' + t.votes + '</span></td></tr>\n';
+          });
+          html += '</tbody>\n</table>\n';
+        });
+        html += '</div>\n';
+      }
+
+      // Unplaced
+      if (unplaced.length) {
+        html += '<div class="section">\n<h2>Unplaced (voted, not in any release)</h2>\n';
+        html += '<table>\n<thead><tr><th>Topic</th><th>Category</th><th>Votes</th></tr></thead>\n<tbody>\n';
+        unplaced.forEach(function(t) {
+          html += '<tr><td><strong>' + esc(t.title) + '</strong></td><td>' + esc(t.category) + '</td><td><span class="badge">' + t.votes + '</span></td></tr>\n';
+        });
+        html += '</tbody>\n</table>\n</div>\n';
+      }
+
+      // All Topics (for re-import)
+      html += '<div class="section">\n<h2>All Topics</h2>\n';
+      html += '<table id="all-topics-table">\n<thead><tr><th>Topic</th><th>Description</th><th>Category</th><th>Votes</th></tr></thead>\n<tbody>\n';
+      state.topics.forEach(function(t) {
+        html += '<tr><td>' + esc(t.title) + '</td><td>' + esc(t.desc) + '</td><td>' + esc(t.category) + '</td><td>' + t.votes + '</td></tr>\n';
+      });
+      html += '</tbody>\n</table>\n</div>\n';
+
+      html += '<div class="footer">Exported by Roadmap Workshop &middot; ' + esc(state.sessionDate) + '</div>\n';
+      html += '</body>\n</html>';
+
+      downloadBlob(html, 'text/html', 'roadmap-session-' + state.sessionDate + '.html');
+      state.hasUnsavedChanges = false;
+    }
+
+    // =========================================================================
+    // EXPORT — EXCEL
+    // =========================================================================
+    let xlsxLoaded = false;
+    let xlsxLoading = false;
+
+    function downloadExcel() {
+      if (!xlsxLoaded) {
+        if (xlsxLoading) return;
+        xlsxLoading = true;
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js';
+        script.onload = function() { xlsxLoaded = true; xlsxLoading = false; doExcel(); };
+        script.onerror = function() { xlsxLoading = false; alert('Could not load SheetJS. Check internet connection.'); };
+        document.head.appendChild(script);
+        return;
+      }
+      doExcel();
+    }
+
+    function doExcel() {
+      const XLSX = window.XLSX;
+      const wb = XLSX.utils.book_new();
+
+      // Sheet 1 — Vote Results
+      const voted = state.topics.filter(function(t){ return t.votes > 0; });
+      voted.sort(function(a,b){ return b.votes - a.votes; });
+      const voteRows = [['#','Topic','Description','Category','Votes','Open Questions','Decisions']];
+      voted.forEach(function(t, i) {
+        voteRows.push([i+1, t.title, t.desc, t.category, t.votes, t.questions.join('; '), t.decisions.join('; ')]);
+      });
+      const wsVote = XLSX.utils.aoa_to_sheet(voteRows);
+      wsVote['!cols'] = [{wch:4},{wch:28},{wch:36},{wch:16},{wch:6},{wch:40},{wch:40}];
+      XLSX.utils.book_append_sheet(wb, wsVote, 'Vote Results');
+
+      // Sheet 2 — Release Plan
+      const relRows = [['Release','Topic','Category','Votes','Open Questions','Decisions']];
+      state.releases.forEach(function(rel) {
+        rel.cardIds.forEach(function(id) {
+          const t = state.topics.find(function(x){ return x.id === id; });
+          if (!t) return;
+          relRows.push([rel.name, t.title, t.category, t.votes, t.questions.join('; '), t.decisions.join('; ')]);
         });
       });
-    }());
+      const wsRel = XLSX.utils.aoa_to_sheet(relRows);
+      wsRel['!cols'] = [{wch:18},{wch:28},{wch:16},{wch:6},{wch:40},{wch:40}];
+      XLSX.utils.book_append_sheet(wb, wsRel, 'Release Plan');
+
+      XLSX.writeFile(wb, 'roadmap-session-' + state.sessionDate + '.xlsx');
+      state.hasUnsavedChanges = false;
+    }
+
+    // =========================================================================
+    // HELPERS
+    // =========================================================================
+    function downloadBlob(content, mime, filename) {
+      const blob = new Blob([content], { type: mime });
+      const url  = URL.createObjectURL(blob);
+      const a    = document.createElement('a');
+      a.href     = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(function(){ URL.revokeObjectURL(url); }, 1000);
+    }
+
+    // =========================================================================
+    // INIT
+    // =========================================================================
+    // Set today's date
+    inpDate.value = todayISO();
+    state.sessionDate = todayISO();
+
+    // Initial preview render
+    renderPreview();
+
+  }());
   </script>
 
 </body>
