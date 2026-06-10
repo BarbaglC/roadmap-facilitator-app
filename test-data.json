@@ -1,0 +1,21 @@
+{
+  "sessionName": "Q3 Strategy Planning",
+  "date": "2026-06-10",
+  "topics": [
+    {"id": "t1", "title": "Self-service reporting", "desc": "Let stakeholders build their own dashboards without eng support", "category": "Platform"},
+    {"id": "t2", "title": "API rate limiting", "desc": "Protect services from abuse with configurable throttling", "category": "Platform"},
+    {"id": "t3", "title": "Onboarding wizard redesign", "desc": "Reduce time-to-first-value for new users", "category": "UX"},
+    {"id": "t4", "title": "Accessibility audit", "desc": "WCAG 2.1 AA compliance across all views", "category": "UX"},
+    {"id": "t5", "title": "Slack integration", "desc": "Push notifications and alerts to team channels", "category": "Integrations"},
+    {"id": "t6", "title": "Usage analytics pipeline", "desc": "Track feature adoption across cohorts", "category": "Data & Analytics"},
+    {"id": "t7", "title": "Mobile responsive views", "desc": "Support tablet and phone viewports for key flows", "category": "UX"},
+    {"id": "t8", "title": "Bulk import tool", "desc": "CSV upload for batch operations", "category": "Platform"},
+    {"id": "t9", "title": "SSO support", "desc": "SAML and OIDC for enterprise clients", "category": "Platform"},
+    {"id": "t10", "title": "Real-time dashboards", "desc": "WebSocket-powered live data updates", "category": "Data & Analytics"},
+    {"id": "t11", "title": "Email digest notifications", "desc": "Weekly summary emails for inactive users", "category": "Integrations"},
+    {"id": "t12", "title": "Dark mode", "desc": "Theme toggle for user preference", "category": "UX"},
+    {"id": "t13", "title": "Audit logging", "desc": "Track all user actions for compliance", "category": "Platform"},
+    {"id": "t14", "title": "Custom branding", "desc": "White-label option for enterprise tier", "category": "Platform"},
+    {"id": "t15", "title": "Search improvements", "desc": "Full-text search with filters and facets", "category": "UX"}
+  ]
+}

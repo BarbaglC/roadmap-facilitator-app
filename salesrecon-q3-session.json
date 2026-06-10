@@ -1,0 +1,438 @@
+{
+  "sessionName": "SalesRecon Q3 Roadmap Workshop",
+  "date": "2026-06-10",
+  "topics": [
+    {
+      "id": "r1",
+      "title": "[Q2][Prioritized] Group hierarchy on one screen",
+      "desc": "As a strategic account manager or CSM, I want to see all subsidiaries and entities in a group with aggregated metrics — and drill down by region or division …so I have a single starting point for the full account instead of stitching together separate entity dossiers",
+      "category": "Research & Roll-up",
+      "color": "blue",
+      "committedRelease": "Jul-26"
+    },
+    {
+      "id": "r2",
+      "title": "[Q2][Prioritized] Chat with my account agent",
+      "desc": "As an RM, I want a chat entry point on the account page to ask questions about the whole group without switching accounts …so I get answers in context without rebuilding my session each time",
+      "category": "Research & Roll-up",
+      "color": "blue",
+      "committedRelease": "Jul-26"
+    },
+    {
+      "id": "r3",
+      "title": "[Q2][Prioritized] Subsidiary coverage flags",
+      "desc": "As an RM, I want to see which subsidiaries have active products and which don't, with a clear flag when intelligence hasn't been generated and why …so I know where the gaps are before I walk into any conversation",
+      "category": "Research & Roll-up",
+      "color": "blue",
+      "committedRelease": "Jul-26"
+    },
+    {
+      "id": "r4",
+      "title": "[Q2][Prioritized] Automatic intelligence refresh",
+      "desc": "As an RM, I want account intelligence to refresh automatically on a regular cadence — MAS runs at group level by default …so I always have current data without manually re-running anything",
+      "category": "Research & Roll-up",
+      "color": "blue",
+      "committedRelease": "Sep-26"
+    },
+    {
+      "id": "r5",
+      "title": "[Q2][Backlog] Deep whitespace & growth plan",
+      "desc": "As a strat account team member, I want a bottom-up analysis of every subsidiary showing where Moody's has no penetration — with ranked recommendations on who to approach next …so I stop missing opportunities below HQ like leasing arms of French banks or US subsidiaries we barely touch",
+      "category": "Research & Roll-up",
+      "color": "grey",
+      "committedRelease": null
+    },
+    {
+      "id": "r6",
+      "title": "[Q2][Backlog] Subsidiary independence score",
+      "desc": "As a strategic account manager, I want to see how independently each division operates from the group centre — financially, politically, and in purchasing decisions …so I know whether to approach a subsidiary directly or route through the group",
+      "category": "Research & Roll-up",
+      "color": "grey",
+      "committedRelease": null
+    },
+    {
+      "id": "r7",
+      "title": "[Q2][Backlog] Peer group benchmarking",
+      "desc": "As a strategic account manager or CSM, I want to compare my account against a peer group matched by size, industry, and geography to surface what similar institutions are doing that this account isn't …so I have a credible external benchmark to support expansion conversations",
+      "category": "Research & Roll-up",
+      "color": "grey",
+      "committedRelease": null
+    },
+    {
+      "id": "r8",
+      "title": "[Q2][Backlog] Partner-led sales narratives",
+      "desc": "As a seller, I want sales narratives that explicitly guide me towards partners where that makes sense — with context on which partner to involve and why …so I can sell more via the right partners rather than defaulting to direct only",
+      "category": "Research & Roll-up",
+      "color": "grey",
+      "committedRelease": null
+    },
+    {
+      "id": "r9",
+      "title": "[Q2][Backlog] Sales simulation & pitch practice",
+      "desc": "As a seller, I want to practice pitches and objection handling with an agent using different roles and personas — and see how I've performed against a rubric …so I'm better prepared for the actual meeting, not rehearsing for the first time in front of the client",
+      "category": "Research & Roll-up",
+      "color": "grey",
+      "committedRelease": null
+    },
+    {
+      "id": "p1",
+      "title": "[Q2][Prioritized] Pipeline Orchestration",
+      "desc": "As a rep, I want outputs generated faster because each pipeline type (renewal, new biz, refresh, initiation) runs independently and I can run only what I need when I need …so reliability improves and failures in one type don't block others",
+      "category": "Pipeline & Agents",
+      "color": "blue",
+      "committedRelease": "Jul-26"
+    },
+    {
+      "id": "p10",
+      "title": "[Q2][Prioritized] Modular pipeline — MAI from MAS",
+      "desc": "As a rep, I want outputs generated faster because each pipeline type (renewal, new biz, refresh, initiation) runs independently using MAI from MAS …so reliability improves and failures in one type don't block others",
+      "category": "Pipeline & Agents",
+      "color": "blue",
+      "committedRelease": "Jul-26"
+    },
+    {
+      "id": "p2",
+      "title": "[Q2][Prioritized] Smarter agent routing",
+      "desc": "As a rep, I want the agent to route my question to the right tool and return a sourced, accurate answer — prompting and routing completely reworked …so I stop getting generic or hallucinated responses that erode trust",
+      "category": "Pipeline & Agents",
+      "color": "green",
+      "committedRelease": null
+    },
+    {
+      "id": "p3",
+      "title": "[Q2][Prioritized] HTML rendering & editorial style",
+      "desc": "As a rep, I want content displayed in the right length, format, and editorial style — rendered as clean HTML, not raw markdown blocks …so outputs feel polished and are immediately usable in client conversations",
+      "category": "Pipeline & Agents",
+      "color": "blue",
+      "committedRelease": "Jul-26"
+    },
+    {
+      "id": "p4",
+      "title": "[Q2][Prioritized] Rating agency intelligence feed",
+      "desc": "As a strategic account manager or CSM, I want Moody's ratings, credit opinions, and outlook changes surfaced proactively as a first-class data source in the account dossier …so I never walk into a client meeting unaware of a rating event — clients see us as one entity",
+      "category": "Pipeline & Agents",
+      "color": "blue",
+      "committedRelease": "Aug-26"
+    },
+    {
+      "id": "p5",
+      "title": "[Q3] Personalization: SPM Agent integration",
+      "desc": "As a sales rep or RM, I want personalised, commission-aware deal prioritisation across all my accounts in my book, so that I always know exactly where to focus to hit my target. I also want the agent to nudge me on next actions based on this prioritization.",
+      "category": "Pipeline & Agents",
+      "color": "yellow",
+      "committedRelease": null
+    },
+    {
+      "id": "p6",
+      "title": "[Q3] SR Agent empowered with Moody's data: access to Moody's MCP",
+      "desc": "As a sales rep, RM or CSM, I want the SalesRecon agent to draw on Moody's data universe via Moody's MCP, so that every insight I get is grounded in the most relevant, authoritative information available about my accounts.",
+      "category": "Pipeline & Agents",
+      "color": "yellow",
+      "committedRelease": null
+    },
+    {
+      "id": "p7",
+      "title": "[Q3] Proactive agent and Personalization",
+      "desc": "As a sales rep, CSM, RM or AM, I want the SalesRecon agent to learn how I work and guide me through my recurring workflows with the right data already lined up, so that preparing for recurring activities (like QBRs or pipeline status review or end of week reporting) takes a fraction of the time.",
+      "category": "Pipeline & Agents",
+      "color": "yellow",
+      "committedRelease": null
+    },
+    {
+      "id": "p8",
+      "title": "[Q3] Custom SR Agents i.e. Build Your Own Artifact Template",
+      "desc": "As a sales rep, RM, CSM, I want to save my own artifact templates and re-run them against any account with a single click, so that recurring deliverables (like account plans or prep docs) are always current without starting from scratch or looking for templates or prompts used in past. Ex Friday report for my Manager (Contact: Steve Kidd).",
+      "category": "Pipeline & Agents",
+      "color": "yellow",
+      "committedRelease": null
+    },
+    {
+      "id": "p9",
+      "title": "[Q3] SR Agent interconnected with Copilot (MCP vs A2A)",
+      "desc": "As a sales rep, RM, CSM, I want the great intelligence layer in SalesRecon to be available for me to use wherever I work (SalesRecon App or Copilot/Copilot Studio) so that I know I always have all the information I need at my (agent's) fingertips.",
+      "category": "Pipeline & Agents",
+      "color": "yellow",
+      "committedRelease": null
+    },
+    {
+      "id": "d1",
+      "title": "[Q2][Prioritized] RM & CSM relationship dashboard feed on landing page",
+      "desc": "As an RM or CSM, I want a landing page to help me manage my accounts — showing where to focus my attention across the full portfolio …so I arrive knowing what's urgent rather than having to review every account individually to figure out my priorities for the day",
+      "category": "Relationship Dashboard",
+      "color": "blue",
+      "committedRelease": "Sep-26"
+    },
+    {
+      "id": "d2",
+      "title": "[Q2][Prioritized] Portfolio landing page",
+      "desc": "As an RM, I want a portfolio landing page showing recent activity, health scores, and lifecycle-stage nudges across all my accounts today …so I arrive knowing what needs attention without digging into each account individually",
+      "category": "Relationship Dashboard",
+      "color": "blue",
+      "committedRelease": "Sep-26"
+    },
+    {
+      "id": "d3",
+      "title": "[Q2][Prioritized] Strategic account view",
+      "desc": "As a strategic account manager or CSM, I want to see a relationship dashboard when I open a strategic account — group hierarchy, key contacts, and relationship health — not just topic cards …so strategic accounts feel meaningfully different from the moment I open them",
+      "category": "Relationship Dashboard",
+      "color": "blue",
+      "committedRelease": "Aug-26"
+    },
+    {
+      "id": "d4",
+      "title": "[Q2][Prioritized] Generate artifacts from relationship view",
+      "desc": "As an RM, I want to generate a brief, QBR pack, or exec report from within my strategic account relationship view, pulling in full hierarchy data …so prep happens inside SalesRecon instead of copying data into PowerPoint",
+      "category": "Relationship Dashboard",
+      "color": "blue",
+      "committedRelease": null
+    },
+    {
+      "id": "d5",
+      "title": "[Q2][Backlog] Full stakeholder map",
+      "desc": "As a strategic account manager or CSM, I want to see who we know, who we don't, influence levels, and every internal Moody's touchpoint — who is talking to whom across the account …so I can coordinate coverage rather than three colleagues independently approaching the same contact",
+      "category": "Relationship Dashboard",
+      "color": "grey",
+      "committedRelease": null
+    },
+    {
+      "id": "d6",
+      "title": "[Q2][Backlog] People on the move alerts",
+      "desc": "As a strategic account manager or CSM, I want an alert when a senior contact moves role or leaves my account — before a competitor can act on it …so I follow champions to their new employer or build with their successor before the relationship goes cold",
+      "category": "Relationship Dashboard",
+      "color": "grey",
+      "committedRelease": null
+    },
+    {
+      "id": "d7",
+      "title": "[Q2][Backlog] Living client org chart",
+      "desc": "As a strategic account manager or CSM, I want a dynamic map of the client's own organisation — contacts tagged by seniority, influence, relationship health, and business line — that stays current as people move roles or leave …so I always know who the real decision-makers and influencers are, and I'm never caught off guard when a key contact disappears from their role",
+      "category": "Relationship Dashboard",
+      "color": "grey",
+      "committedRelease": null
+    },
+    {
+      "id": "d8",
+      "title": "[Q2][Backlog] Curated account news feed",
+      "desc": "As an RM, I want a curated feed of what's keeping my strategic account busy — filed reports, exec changes, earnings commentary …so I walk into every conversation already knowing what's on their mind",
+      "category": "Relationship Dashboard",
+      "color": "grey",
+      "committedRelease": null
+    },
+    {
+      "id": "d9",
+      "title": "[Q2][Backlog] Surface hand raises from any channel",
+      "desc": "As a strategic account manager or CSM, I want an alert whenever anyone from a strategic account reaches out to any part of Moody's — support, marketing, events …so no signal of interest or concern gets lost in another team's queue",
+      "category": "Relationship Dashboard",
+      "color": "grey",
+      "committedRelease": null
+    },
+    {
+      "id": "c1",
+      "title": "[Q2][Prioritized] Customisable landing page",
+      "desc": "As a rep, I want to choose my own landing page — cards, portfolio, or relationship dashboard — and have the app remember where I left off …so SalesRecon adapts to how I work rather than forcing a single flow",
+      "category": "Content & UX",
+      "color": "blue",
+      "committedRelease": "Sep-26"
+    },
+    {
+      "id": "c2",
+      "title": "[Q2][Prioritized] Readable HTML output",
+      "desc": "As a rep, I want content shown in the right length, format, and editorial style — rendered as clean HTML, not raw markdown blocks …so outputs are immediately usable without manual reformatting",
+      "category": "Content & UX",
+      "color": "blue",
+      "committedRelease": null
+    },
+    {
+      "id": "c3",
+      "title": "[Q2][Prioritized] Chat & deep-dive in account",
+      "desc": "As a rep, I want a \"chat in / learn more\" entry point on the account page — letting me ask follow-up questions or access structured deep-dive views (competitor tracking, license parameters, decision process) without leaving the account …so I can go deeper on any dimension of an account in context rather than switching tools or rebuilding a session",
+      "category": "Content & UX",
+      "color": "green",
+      "committedRelease": null
+    },
+    {
+      "id": "n1",
+      "title": "[Q2][Prioritized] Lifecycle-stage nudges",
+      "desc": "As a rep, I want to receive a nudge when an account at a critical lifecycle stage needs attention — the system tells me what to do, not just what's happening …so I act at the right moment instead of noticing too late",
+      "category": "Nudging & Monitoring",
+      "color": "blue",
+      "committedRelease": "Aug-26"
+    },
+    {
+      "id": "n2",
+      "title": "[Q2][Prioritized] Portfolio nudges on landing page",
+      "desc": "As a rep, I want my portfolio landing page to show nudges alongside account health — I arrive knowing my most important actions for today …so I start each day with a clear priority list rather than manually reviewing every account",
+      "category": "Nudging & Monitoring",
+      "color": "blue",
+      "committedRelease": "Sep-26"
+    },
+    {
+      "id": "n3",
+      "title": "[Q2][Prioritized] Context-appropriate prompts",
+      "desc": "As a rep, I want nudges triggered by where an account sits in the relationship cycle — not generic reminders but stage-appropriate guidance …so nudges feel relevant and actionable rather than noise I learn to ignore",
+      "category": "Nudging & Monitoring",
+      "color": "blue",
+      "committedRelease": null
+    },
+    {
+      "id": "n4",
+      "title": "[Q2][Backlog] Peer groups trigger action",
+      "desc": "As a rep, I want SalesRecon to flag it when a peer account adopts a product mine doesn't have — and prompt me to act …so competitive pressure surfaces automatically rather than requiring me to track the market myself",
+      "category": "Nudging & Monitoring",
+      "color": "grey",
+      "committedRelease": null
+    },
+    {
+      "id": "n5",
+      "title": "[Q2][Backlog] Nudge & coach to close gaps",
+      "desc": "As a rep, I want SalesRecon to tell me exactly what to do next to close a gap — reducing deal desk escalations because I act before problems accumulate …so I'm coached proactively rather than reactive when things have already gone wrong",
+      "category": "Nudging & Monitoring",
+      "color": "grey",
+      "committedRelease": null
+    },
+    {
+      "id": "q1",
+      "title": "[Q2][Backlog] Database license parameters",
+      "desc": "As a deal team member or CSM, I want an easy view of what my account currently licenses across the group — including legacy agreement terms, expiry dates, and language that needs adjusting — to model renewal and expansion scenarios …so I can walk into every renewal conversation fully prepared and immediately identify upsell and cross-sell opportunities before the client raises them first",
+      "category": "Qualification & Deal Prep",
+      "color": "grey",
+      "committedRelease": null
+    },
+    {
+      "id": "q2",
+      "title": "[Q2][Backlog] Competitor tracking per opportunity",
+      "desc": "As a strategic account manager, I want to log the primary competitors for each use case or opportunity and have the system research and summarise their capabilities — prompted through the chat function …so I can build genuinely differentiated proposals without spending hours on manual competitive research before every pitch",
+      "category": "Qualification & Deal Prep",
+      "color": "grey",
+      "committedRelease": null
+    },
+    {
+      "id": "q3",
+      "title": "[Q2][Prioritized] Stage-based prep questions",
+      "desc": "As a sales rep preparing for a client meeting, I want the system to suggest a tailored set of questions and talking points based on where my deal currently sits in the pipeline and the defined objective for this stage …so every client conversation moves the deal forward deliberately rather than being a general update call",
+      "category": "Qualification & Deal Prep",
+      "color": "blue",
+      "committedRelease": null
+    },
+    {
+      "id": "q4",
+      "title": "[Q2][Backlog] Critical client info per opportunity",
+      "desc": "As a sales rep or CSM, I want to be prompted to capture the client's business objectives, internal challenges, and our specific value proposition for each opportunity before I progress it …so every deal is grounded in real client context rather than product assumptions",
+      "category": "Qualification & Deal Prep",
+      "color": "grey",
+      "committedRelease": null
+    },
+    {
+      "id": "q5",
+      "title": "[Q2][Backlog] Client decision process capture",
+      "desc": "As a strategic account manager, I want to be prompted to document how this client actually makes buying decisions — who approves, what criteria they apply, what internal politics shape outcomes — stored for future proposals …so I'm not starting from scratch every time an opportunity opens up",
+      "category": "Qualification & Deal Prep",
+      "color": "grey",
+      "committedRelease": null
+    },
+    {
+      "id": "q6",
+      "title": "[Q2][Backlog] Triple metric value articulation",
+      "desc": "As a strategic account manager or CSM, I want the system to help me define and articulate the value Moody's delivers to this client across three measurable thresholds — so I can clearly express what they would lose if they chose not to renew …so retention conversations are built on demonstrable impact rather than relationship goodwill, and the client understands the real cost of leaving",
+      "category": "Qualification & Deal Prep",
+      "color": "grey",
+      "committedRelease": null
+    },
+    {
+      "id": "q7",
+      "title": "[Q2][Backlog] Executive briefing pack",
+      "desc": "As a senior executive preparing to visit a strategic account, I want a ready-to-use briefing pack covering the macro business overview, current strategic priorities, relationship history, open issues, and the news that matters to them right now …so I can walk in as an informed partner — not just someone presenting a product list — and the client feels Moody's genuinely understands their world",
+      "category": "Qualification & Deal Prep",
+      "color": "grey",
+      "committedRelease": null
+    },
+    {
+      "id": "cs1",
+      "title": "[Q2][Prioritized] Account health scorecard",
+      "desc": "As a CSM, I want a continuously updated health score for my strategic account — drawing on usage trends, support ticket volume and sentiment, engagement frequency, executive sponsor activity, and time to renewal — displayed in a single view …so I can see risk building before it's too late to fix, prioritise the accounts that need intervention most, and ensure no strategic account quietly erodes while the team assumes everything is fine",
+      "category": "Customer Success",
+      "color": "blue",
+      "committedRelease": "Aug-26"
+    },
+    {
+      "id": "cs2",
+      "title": "[Q2][Prioritized] Usage & adoption intelligence",
+      "desc": "As a CSM, I want visibility into how each user group and division within the account is actually using Moody's products — adoption rates, feature utilisation, inactive users, and usage trends over time — at both group and subsidiary level …so I can intervene proactively where adoption is low before it becomes a renewal risk, and use strong adoption data as hard evidence to defend and expand the relationship at every review",
+      "category": "Customer Success",
+      "color": "orange",
+      "committedRelease": null
+    },
+    {
+      "id": "cs3",
+      "title": "[Q2][Prioritized] Outcome & value tracking",
+      "desc": "As a CSM, I want a structured way to capture the specific business outcomes this client committed to when they bought, track progress against them over time, and map actual product usage to evidence of those outcomes being delivered …so every QBR and renewal conversation is anchored in demonstrated value the client recognises — not assumed value we assert — making it much harder for them to justify not renewing",
+      "category": "Customer Success",
+      "color": "orange",
+      "committedRelease": null
+    },
+    {
+      "id": "cs4",
+      "title": "[Q2][Prioritized] Renewal risk & early warning signals",
+      "desc": "As a CSM or rep, I want the system to automatically surface early warning signals — declining usage, unresolved support issues, missed check-ins, and sponsor changes — with enough lead time to act, so no account drifts unnoticed while anyone assumes everything is fine …so no renewal is ever lost because we spotted the risk too late — and I can make a credible case for internal resource before the situation becomes urgent",
+      "category": "Customer Success",
+      "color": "blue",
+      "committedRelease": null
+    },
+    {
+      "id": "cs5",
+      "title": "[Q2][Backlog] Executive sponsor tracking",
+      "desc": "As a CSM, I want to track the engagement and sentiment of each executive sponsor at my account — logging when they were last contacted, by whom, on what topic, and whether their stated priorities have shifted …so senior relationships never go dark between sales cycles and I know exactly when a sponsor needs re-engaging before their disengagement starts to affect the renewal",
+      "category": "Customer Success",
+      "color": "grey",
+      "committedRelease": null
+    },
+    {
+      "id": "cs6",
+      "title": "[Q2][Backlog] Cross-product adoption map",
+      "desc": "As a CSM on a strategic account, I want a visual map of which Moody's products each entity in the account group is actively using, trialling, or has lapsed on — updated continuously from actual usage data …so I can identify where adoption has stalled within our existing footprint and work with the sales team to prioritise re-engagement or expansion before a competitor fills the gap",
+      "category": "Customer Success",
+      "color": "grey",
+      "committedRelease": null
+    },
+    {
+      "id": "g1",
+      "title": "[Q2][Prioritized] Global meeting roll-up",
+      "desc": "As a global relationship manager or CSM, I want a consolidated timeline of every interaction Moody's has had with an account — across all geographies, Sales, and CS — in one place. No roll-up currently exists. …so I can coordinate globally rather than discovering too late that conversations are crossing",
+      "category": "Global Relationship Intelligence",
+      "color": "blue",
+      "committedRelease": "Aug-26"
+    },
+    {
+      "id": "g2",
+      "title": "[Q2][Prioritized] Internal stakeholder map",
+      "desc": "As a global relationship manager or CSM, I want a live map of every Moody's person engaging with every contact at my account — across business lines, regions, and teams — with the topic and dynamic of each connection …so I can coordinate our coverage instead of finding out three colleagues are independently approaching the same contact",
+      "category": "Global Relationship Intelligence",
+      "color": "blue",
+      "committedRelease": "Aug-26"
+    },
+    {
+      "id": "g3",
+      "title": "[Q2][Prioritized] QBR intelligence package",
+      "desc": "As a CSM or account manager, I want a pre-populated QBR package aggregating usage data, open opportunities, relationship health, risk signals, and recent interactions …so QBRs are built on substance and delivered confidently rather than assembled the night before",
+      "category": "Global Relationship Intelligence",
+      "color": "blue",
+      "committedRelease": null
+    },
+    {
+      "id": "g4",
+      "title": "[Q2][Backlog] Partner / customer dual-relationship",
+      "desc": "As a strat account manager, I want to view the full relationship Moody's has with an account — client, partner, supplier, joint go-to-market — not just the commercial sales layer …so accounts like Salesforce, AWS, and IBM are managed with full awareness of all relationship dimensions",
+      "category": "Global Relationship Intelligence",
+      "color": "grey",
+      "committedRelease": null
+    },
+    {
+      "id": "g5",
+      "title": "[Q2][Backlog] Subsidiary independence captured",
+      "desc": "As an RM, I want to capture and see how independently each division operates from the group — financially, politically, and in purchasing decisions …so I know whether to approach a subsidiary directly or through the group rather than assuming one approach fits all",
+      "category": "Global Relationship Intelligence",
+      "color": "grey",
+      "committedRelease": null
+    }
+  ]
+}

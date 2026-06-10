@@ -439,7 +439,6 @@
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
       background: var(--bg-card);
-      border-left-width: 3px;
       margin-bottom: 4px;
       font-size: 12px;
     }
@@ -558,7 +557,7 @@
 
     /* Category group (vote view) */
     .cat-group {
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
 
     .cat-group__header {
@@ -567,7 +566,7 @@
       gap: 8px;
       padding: 6px 10px;
       border-radius: var(--radius-sm);
-      margin-bottom: 6px;
+      margin-bottom: 10px;
       font-size: 11px;
       font-weight: 700;
       text-transform: uppercase;
@@ -581,14 +580,20 @@
       opacity: 0.7;
     }
 
+    .cat-group__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 10px;
+    }
+
     /* Vote card */
     .vote-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: var(--radius-md);
-      border-left-width: 3px;
-      margin-bottom: 6px;
       transition: box-shadow 0.15s;
+      display: flex;
+      flex-direction: column;
     }
 
     .vote-card:hover {
@@ -597,9 +602,10 @@
 
     .vote-card__main {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 10px;
-      padding: 8px 10px;
+      padding: 10px 12px;
+      flex: 1;
     }
 
     .vote-card__score {
@@ -621,9 +627,7 @@
       font-size: 13px;
       font-weight: 600;
       color: var(--text-primary);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      line-height: 1.35;
     }
 
     .vote-card__title.edit-mode {
@@ -634,9 +638,8 @@
     .vote-card__desc {
       font-size: 12px;
       color: var(--text-secondary);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      line-height: 1.45;
+      margin-top: 4px;
     }
 
     .vote-card__actions {
@@ -644,6 +647,8 @@
       align-items: center;
       gap: 4px;
       flex-shrink: 0;
+      padding: 6px 12px 8px;
+      border-top: 1px solid var(--border);
     }
 
     .vote-card__actions button {
@@ -689,7 +694,7 @@
     /* Expand section */
     .vote-card__expand {
       display: none;
-      padding: 8px 10px 10px 52px;
+      padding: 8px 12px 10px 12px;
       border-top: 1px solid var(--border);
     }
 
@@ -820,7 +825,7 @@
     }
 
     .prio-row-label {
-      width: 160px;
+      width: 280px;
       flex-shrink: 0;
       padding: 10px 14px;
       font-size: 11px;
@@ -834,7 +839,7 @@
     }
 
     .prio-col-header {
-      width: 200px;
+      width: 260px;
       flex-shrink: 0;
       padding: 8px 10px;
       border-right: 1px solid var(--border);
@@ -918,7 +923,7 @@
     }
 
     .prio-acc-label {
-      width: 160px;
+      width: 280px;
       flex-shrink: 0;
       padding: 8px 14px;
       display: flex;
@@ -956,7 +961,7 @@
     }
 
     .prio-drop-col {
-      width: 200px;
+      width: 260px;
       flex-shrink: 0;
       min-height: 60px;
       padding: 6px;
@@ -975,12 +980,11 @@
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
-      border-left-width: 3px;
-      padding: 5px 8px;
-      margin-bottom: 4px;
+      padding: 7px 10px;
+      margin-bottom: 6px;
       cursor: grab;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 6px;
       font-size: 12px;
       transition: box-shadow 0.12s;
@@ -1003,9 +1007,7 @@
       flex: 1;
       font-weight: 500;
       color: var(--text-primary);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      line-height: 1.35;
     }
 
     .prio-card__votes {
@@ -1013,6 +1015,57 @@
       font-size: 11px;
       color: var(--green);
       flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .prio-card__desc {
+      display: none;
+      font-size: 11px;
+      color: var(--text-secondary);
+      line-height: 1.45;
+      padding: 5px 10px 7px;
+      border-top: 1px solid var(--border);
+    }
+
+    .prio-card__desc.is-open {
+      display: block;
+    }
+
+    /* Card color backgrounds */
+    .card-color-blue {
+      background: #eef4ff;
+      border-color: #b8d4fe;
+    }
+    .card-color-grey {
+      background: #f3f4f6;
+      border-color: #d1d5db;
+    }
+    .card-color-yellow {
+      background: #fefce8;
+      border-color: #fde68a;
+    }
+    .card-color-green {
+      background: #ecfdf5;
+      border-color: #a7f3d0;
+    }
+    .card-color-orange {
+      background: #fff7ed;
+      border-color: #fed7aa;
+    }
+
+    /* Committed release badge */
+    .release-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      padding: 1px 6px;
+      border-radius: 3px;
+      background: #dbeafe;
+      color: #1d4ed8;
+      white-space: nowrap;
+      margin-top: 3px;
     }
 
     /* =====================================================================
@@ -1121,9 +1174,22 @@
 
               <div style="margin-top:16px;">
                 <div style="font-size:12px;font-weight:600;color:var(--text-secondary);margin-bottom:8px;">Or add cards manually</div>
-                <div class="manual-entry">
+                <div class="manual-entry" style="flex-direction:column;">
                   <input type="text" id="manual-card-input" placeholder="Card title…" autocomplete="off" />
-                  <button class="btn btn-sm" id="btn-add-card">Add card</button>
+                  <input type="text" id="manual-desc-input" placeholder="Description (optional)…" autocomplete="off" />
+                  <input type="text" id="manual-cat-input" placeholder="Category (e.g. Platform, UX…)" autocomplete="off" />
+                  <div style="display:flex;gap:8px;align-items:center;">
+                    <select id="manual-color-input" style="font-family:var(--font);font-size:12px;border:1px solid var(--border);border-radius:var(--radius-sm);padding:5px 8px;background:var(--bg-card);color:var(--text-primary);">
+                      <option value="">No color tag</option>
+                      <option value="blue">Blue (Prioritized)</option>
+                      <option value="grey">Grey (Backlog)</option>
+                      <option value="yellow">Yellow (Untagged)</option>
+                      <option value="green">Green (Done)</option>
+                      <option value="orange">Orange (Late/Pushed)</option>
+                    </select>
+                    <input type="text" id="manual-release-input" placeholder="Committed release (e.g. Jul-26)" autocomplete="off" style="width:180px;" />
+                  </div>
+                  <button class="btn btn-sm" id="btn-add-card" style="align-self:flex-start;">Add card</button>
                 </div>
               </div>
             </div>
@@ -1133,16 +1199,14 @@
           <div class="panel">
             <div class="panel__header">
               <span>Preview</span>
+              <span id="preview-summary" style="font-size:11px;color:var(--text-secondary);margin-left:8px;"></span>
+              <span style="flex:1;"></span>
+              <button class="btn btn-sm" id="btn-export-json" style="display:none">Export JSON</button>
               <button class="btn btn-sm" id="btn-clear-all" style="display:none">Clear all</button>
+              <button class="btn btn-primary btn-sm" id="btn-start-voting" style="display:none">Start voting →</button>
             </div>
             <div class="panel__body" id="preview-body">
               <div class="preview-empty" id="preview-empty">No cards yet. Import a file or add cards manually.</div>
-            </div>
-            <div id="preview-footer" style="display:none" class="panel__body" style="padding-top:0">
-              <div class="preview-footer">
-                <div class="preview-summary" id="preview-summary"></div>
-                <button class="btn btn-primary" id="btn-start-voting">Start voting →</button>
-              </div>
             </div>
           </div>
         </div>
@@ -1316,6 +1380,10 @@
     const dropZone = document.getElementById('drop-zone');
     const fileInput = document.getElementById('file-input');
     const manualInput = document.getElementById('manual-card-input');
+    const manualDescInput = document.getElementById('manual-desc-input');
+    const manualCatInput = document.getElementById('manual-cat-input');
+    const manualColorInput = document.getElementById('manual-color-input');
+    const manualReleaseInput = document.getElementById('manual-release-input');
     const btnAddCard = document.getElementById('btn-add-card');
     const btnClearAll = document.getElementById('btn-clear-all');
     const btnStartVoting = document.getElementById('btn-start-voting');
@@ -1374,8 +1442,40 @@
       }
       const topics = Array.isArray(data.topics) ? data.topics : [];
       topics.forEach(function(t) {
-        addTopic(t.title || 'Untitled', t.desc || t.description || '', t.category || 'Other', t.id);
+        addTopic(t.title || 'Untitled', t.desc || t.description || '', t.category || 'Other', t.id, t.color || null, t.committedRelease || null);
       });
+
+      // Auto-create release columns from committedRelease and assign cards
+      var releaseNames = [];
+      topics.forEach(function(t) {
+        if (t.committedRelease && releaseNames.indexOf(t.committedRelease) === -1) {
+          releaseNames.push(t.committedRelease);
+        }
+      });
+      // Sort releases chronologically (MMM-YY format)
+      var monthOrder = {Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6,Aug:7,Sep:8,Oct:9,Nov:10,Dec:11};
+      releaseNames.sort(function(a, b) {
+        var partsA = a.split('-'), partsB = b.split('-');
+        var yearA = parseInt(partsA[1], 10), yearB = parseInt(partsB[1], 10);
+        if (yearA !== yearB) return yearA - yearB;
+        return (monthOrder[partsA[0]] || 0) - (monthOrder[partsB[0]] || 0);
+      });
+      releaseNames.forEach(function(name) {
+        // Only create if not already exists
+        var exists = state.releases.find(function(r) { return r.name === name; });
+        if (!exists) {
+          state.releases.push({ id: uid(), name: name, cardIds: [] });
+        }
+      });
+      // Assign cards with committedRelease to their release columns
+      state.topics.forEach(function(t) {
+        if (!t.committedRelease) return;
+        var rel = state.releases.find(function(r) { return r.name === t.committedRelease; });
+        if (rel && !rel.cardIds.includes(t.id)) {
+          rel.cardIds.push(t.id);
+        }
+      });
+
       renderPreview();
       markDirty();
     }
@@ -1416,7 +1516,7 @@
       markDirty();
     }
 
-    function addTopic(title, desc, category, id) {
+    function addTopic(title, desc, category, id, color, committedRelease) {
       // Avoid duplicates by id
       if (id && state.topics.find(function(t){ return t.id === id; })) return;
       state.topics.push({
@@ -1428,6 +1528,8 @@
         questions: [],
         decisions: [],
         parked: false,
+        color: color || null,
+        committedRelease: committedRelease || null,
       });
       getCatColour(category || 'Other'); // ensure colour assigned
     }
@@ -1436,13 +1538,25 @@
     btnAddCard.addEventListener('click', function() {
       const val = manualInput.value.trim();
       if (!val) return;
-      addTopic(val, '', 'Other');
+      const desc = manualDescInput.value.trim();
+      const cat = manualCatInput.value.trim() || 'Other';
+      const color = manualColorInput.value || null;
+      const release = manualReleaseInput.value.trim() || null;
+      addTopic(val, desc, cat, null, color, release);
       manualInput.value = '';
+      manualDescInput.value = '';
       renderPreview();
       markDirty();
+      manualInput.focus();
     });
 
     manualInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') btnAddCard.click();
+    });
+    manualDescInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') btnAddCard.click();
+    });
+    manualCatInput.addEventListener('keydown', function(e) {
       if (e.key === 'Enter') btnAddCard.click();
     });
 
@@ -1456,6 +1570,22 @@
       markDirty();
     });
 
+    // Export JSON
+    document.getElementById('btn-export-json').addEventListener('click', function() {
+      const data = {
+        sessionName: state.sessionName,
+        date: state.sessionDate,
+        topics: state.topics.map(function(t) {
+          var obj = { id: t.id, title: t.title, desc: t.desc, category: t.category };
+          if (t.color) obj.color = t.color;
+          if (t.committedRelease) obj.committedRelease = t.committedRelease;
+          return obj;
+        })
+      };
+      const json = JSON.stringify(data, null, 2);
+      downloadBlob(json, 'application/json', 'roadmap-cards-' + state.sessionDate + '.json');
+    });
+
     // Start voting
     btnStartVoting.addEventListener('click', function() {
       activateTab(1);
@@ -1467,12 +1597,13 @@
     function renderPreview() {
       const body = document.getElementById('preview-body');
       const emptyEl = document.getElementById('preview-empty');
-      const footer = document.getElementById('preview-footer');
       const summary = document.getElementById('preview-summary');
+      const btnExportJson = document.getElementById('btn-export-json');
 
       const topics = state.topics;
       btnClearAll.style.display = topics.length ? '' : 'none';
-      footer.style.display = topics.length ? '' : 'none';
+      btnExportJson.style.display = topics.length ? '' : 'none';
+      btnStartVoting.style.display = topics.length ? '' : 'none';
 
       if (!topics.length) {
         emptyEl.style.display = '';
@@ -1494,10 +1625,7 @@
       body.querySelectorAll('.preview-category').forEach(function(el){ el.remove(); });
 
       // Build summary line
-      const parts = Object.keys(groups).map(function(cat) {
-        return esc(cat) + ' (' + groups[cat].length + ')';
-      });
-      summary.innerHTML = parts.join(' &middot; ');
+      summary.textContent = topics.length + ' cards';
 
       // Render groups
       Object.keys(groups).forEach(function(cat) {
@@ -1613,9 +1741,12 @@
         hdr.innerHTML = '<span>' + esc(cat) + '</span><span class="cat-group__count">(' + groups[cat].length + ')</span>';
         groupEl.appendChild(hdr);
 
+        const grid = document.createElement('div');
+        grid.className = 'cat-group__grid';
         groups[cat].forEach(function(t) {
-          groupEl.appendChild(buildVoteCard(t, colour));
+          grid.appendChild(buildVoteCard(t, colour));
         });
+        groupEl.appendChild(grid);
 
         container.appendChild(groupEl);
       });
@@ -1623,7 +1754,7 @@
 
     function buildVoteCard(t, colour) {
       const card = document.createElement('div');
-      card.className = 'vote-card';
+      card.className = 'vote-card' + (t.color ? ' card-color-' + t.color : '');
       card.id = 'vcard-' + t.id;
       card.style.borderLeftColor = colour.border;
 
@@ -1646,6 +1777,12 @@
       descEl.textContent = t.desc;
 
       text.appendChild(titleEl);
+      if (t.committedRelease) {
+        const relBadge = document.createElement('span');
+        relBadge.className = 'release-badge';
+        relBadge.textContent = t.committedRelease;
+        text.appendChild(relBadge);
+      }
       text.appendChild(descEl);
 
       // Action buttons
@@ -1731,8 +1868,8 @@
 
       main.appendChild(score);
       main.appendChild(text);
-      main.appendChild(actions);
       card.appendChild(main);
+      card.appendChild(actions);
 
       // Expand section
       const expSection = document.createElement('div');
@@ -1906,7 +2043,7 @@
     // =========================================================================
     // Ensure unprioritised always exists as a virtual "release" with id null
     function getVotedTopics() {
-      return state.topics.filter(function(t){ return t.votes > 0 && !t.parked; });
+      return state.topics.filter(function(t){ return (t.votes > 0 || t.committedRelease) && !t.parked; });
     }
 
     function getPlacedIds() {
@@ -1997,11 +2134,11 @@
         // Fill remaining header columns with empty cells to align
         // Unprioritised
         const emptyUnhdr = document.createElement('div');
-        emptyUnhdr.style.cssText = 'width:200px;flex-shrink:0;border-right:1px solid var(--border);';
+        emptyUnhdr.style.cssText = 'width:260px;flex-shrink:0;border-right:1px solid var(--border);';
         accHdr.appendChild(emptyUnhdr);
         state.releases.forEach(function() {
           const emptyRhdr = document.createElement('div');
-          emptyRhdr.style.cssText = 'width:200px;flex-shrink:0;border-right:1px solid var(--border);';
+          emptyRhdr.style.cssText = 'width:260px;flex-shrink:0;border-right:1px solid var(--border);';
           accHdr.appendChild(emptyRhdr);
         });
         // Add release placeholder
@@ -2015,6 +2152,11 @@
 
         const accBody = document.createElement('div');
         accBody.className = 'accordion__body prio-accordion__body';
+
+        // Left spacer to align with category label column
+        const bodyLabel = document.createElement('div');
+        bodyLabel.style.cssText = 'width:280px;flex-shrink:0;border-right:1px solid var(--border);';
+        accBody.appendChild(bodyLabel);
 
         // Unprioritised column
         const unCol = buildDropCol(null, cat, groups[cat]);
@@ -2130,13 +2272,28 @@
     function buildPrioCard(t) {
       const colour = getCatColour(t.category);
       const card = document.createElement('div');
-      card.className = 'prio-card';
+      card.className = 'prio-card' + (t.color ? ' card-color-' + t.color : '');
       card.style.borderLeftColor = colour.border;
+      card.style.flexDirection = 'column';
+      card.style.alignItems = 'stretch';
       card.draggable = true;
       card.dataset.cardId = t.id;
 
-      card.innerHTML = '<span class="prio-card__title">' + esc(t.title) + '</span>'
+      const topRow = document.createElement('div');
+      topRow.style.cssText = 'display:flex;align-items:flex-start;gap:6px;cursor:pointer;';
+      topRow.innerHTML = '<span class="prio-card__title">' + esc(t.title) + '</span>'
+        + (t.committedRelease ? '<span class="release-badge">' + esc(t.committedRelease) + '</span>' : '')
         + '<span class="prio-card__votes">' + t.votes + '</span>';
+      card.appendChild(topRow);
+
+      const descEl = document.createElement('div');
+      descEl.className = 'prio-card__desc';
+      descEl.textContent = t.desc;
+      card.appendChild(descEl);
+
+      topRow.addEventListener('click', function() {
+        descEl.classList.toggle('is-open');
+      });
 
       // Determine which release this card belongs to (for drag source)
       let srcRelId = '__unplaced__';
@@ -2226,6 +2383,22 @@
       });
       html += '</tbody>\n</table>\n</div>\n';
 
+      // Parked Items
+      var parkedTopics = state.topics.filter(function(t){ return t.parked; });
+      if (parkedTopics.length) {
+        html += '<div class="section">\n<h2>Parked Items</h2>\n';
+        html += '<table>\n<thead><tr><th>Topic</th><th>Description</th><th>Category</th><th>Votes</th><th>Open Questions</th><th>Decisions</th></tr></thead>\n<tbody>\n';
+        parkedTopics.forEach(function(t) {
+          html += '<tr><td><strong>' + esc(t.title) + '</strong></td><td>' + esc(t.desc)
+            + '</td><td>' + esc(t.category)
+            + '</td><td>' + t.votes + '</td>'
+            + '<td>' + t.questions.map(esc).join('<br>') + '</td>'
+            + '<td>' + t.decisions.map(esc).join('<br>') + '</td>'
+            + '</tr>\n';
+        });
+        html += '</tbody>\n</table>\n</div>\n';
+      }
+
       // Release Plan
       if (state.releases.length) {
         html += '<div class="section">\n<h2>Release Plan</h2>\n';
@@ -2235,11 +2408,14 @@
             html += '<p style="color:#9ca3af;font-size:13px">No items assigned.</p>\n';
             return;
           }
-          html += '<table>\n<thead><tr><th>Topic</th><th>Category</th><th>Votes</th></tr></thead>\n<tbody>\n';
+          html += '<table>\n<thead><tr><th>Topic</th><th>Category</th><th>Votes</th><th>Open Questions</th><th>Decisions</th></tr></thead>\n<tbody>\n';
           rel.cardIds.forEach(function(id) {
             const t = state.topics.find(function(x){ return x.id === id; });
             if (!t) return;
-            html += '<tr><td><strong>' + esc(t.title) + '</strong></td><td>' + esc(t.category) + '</td><td><span class="badge">' + t.votes + '</span></td></tr>\n';
+            html += '<tr><td><strong>' + esc(t.title) + '</strong></td><td>' + esc(t.category) + '</td><td><span class="badge">' + t.votes + '</span></td>'
+              + '<td>' + t.questions.map(esc).join('<br>') + '</td>'
+              + '<td>' + t.decisions.map(esc).join('<br>') + '</td>'
+              + '</tr>\n';
           });
           html += '</tbody>\n</table>\n';
         });
@@ -2296,7 +2472,7 @@
       const wb = XLSX.utils.book_new();
 
       // Sheet 1 — Vote Results
-      const voted = state.topics.filter(function(t){ return t.votes > 0; });
+      const voted = state.topics.filter(function(t){ return t.votes > 0 && !t.parked; });
       voted.sort(function(a,b){ return b.votes - a.votes; });
       const voteRows = [['#','Topic','Description','Category','Votes','Open Questions','Decisions']];
       voted.forEach(function(t, i) {
@@ -2318,6 +2494,18 @@
       const wsRel = XLSX.utils.aoa_to_sheet(relRows);
       wsRel['!cols'] = [{wch:18},{wch:28},{wch:16},{wch:6},{wch:40},{wch:40}];
       XLSX.utils.book_append_sheet(wb, wsRel, 'Release Plan');
+
+      // Sheet 3 — Parked Items
+      const parkedItems = state.topics.filter(function(t){ return t.parked; });
+      if (parkedItems.length) {
+        const parkRows = [['Topic','Description','Category','Votes','Open Questions','Decisions']];
+        parkedItems.forEach(function(t) {
+          parkRows.push([t.title, t.desc, t.category, t.votes, t.questions.join('; '), t.decisions.join('; ')]);
+        });
+        const wsPark = XLSX.utils.aoa_to_sheet(parkRows);
+        wsPark['!cols'] = [{wch:28},{wch:36},{wch:16},{wch:6},{wch:40},{wch:40}];
+        XLSX.utils.book_append_sheet(wb, wsPark, 'Parked');
+      }
 
       XLSX.writeFile(wb, 'roadmap-session-' + state.sessionDate + '.xlsx');
       state.hasUnsavedChanges = false;
