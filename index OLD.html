@@ -571,8 +571,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      color: #6d28d9;
-      background: #ede9fe;
+      color: var(--text-secondary);
     }
 
     .cat-group__count {
@@ -613,14 +612,10 @@
       font-family: var(--font-mono);
       font-size: 20px;
       font-weight: 500;
-      color: var(--text-secondary);
+      color: var(--green);
       min-width: 32px;
       text-align: center;
       flex-shrink: 0;
-    }
-    .vote-card__score.has-votes {
-      color: #dc2626;
-      font-weight: 700;
     }
 
     .vote-card__text {
@@ -780,11 +775,11 @@
     /* Edit inline */
     .edit-input {
       font-family: var(--font);
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 600;
       border: 1px solid var(--accent);
       border-radius: var(--radius-sm);
-      padding: 6px 10px;
+      padding: 3px 7px;
       outline: none;
       width: 100%;
       color: var(--text-primary);
@@ -793,47 +788,16 @@
 
     .edit-textarea {
       font-family: var(--font);
-      font-size: 13px;
+      font-size: 12px;
       border: 1px solid var(--accent);
       border-radius: var(--radius-sm);
-      padding: 6px 10px;
+      padding: 3px 7px;
       outline: none;
       width: 100%;
       color: var(--text-secondary);
       background: var(--bg-card);
       resize: vertical;
-      min-height: 80px;
-    }
-
-    .edit-row {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-      margin-top: 6px;
-    }
-    .edit-row select, .edit-row input {
-      font-family: var(--font);
-      font-size: 11px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 4px 6px;
-      background: var(--bg-card);
-      color: var(--text-primary);
-    }
-    .edit-row .edit-label {
-      font-size: 10px;
-      font-weight: 600;
-      color: var(--text-secondary);
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-    }
-    .edit-actions {
-      display: flex;
-      gap: 6px;
-      margin-top: 8px;
-    }
-    .vote-card.is-editing {
-      grid-column: 1 / -1;
+      min-height: 40px;
     }
 
     /* =====================================================================
@@ -1067,54 +1031,6 @@
       display: block;
     }
 
-    .prio-card__expand {
-      display: none;
-      padding: 8px 10px 10px 10px;
-      border-top: 1px solid var(--border);
-    }
-
-    .prio-card__expand.is-open {
-      display: block;
-    }
-
-    .prio-card__actions {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 4px;
-      padding-top: 4px;
-    }
-
-    .prio-card__actions button {
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-size: 12px;
-      color: var(--text-muted);
-      padding: 2px 4px;
-      border-radius: 3px;
-    }
-
-    .prio-card__actions button:hover {
-      color: var(--text-primary);
-      background: var(--accent-dim);
-    }
-
-    .prio-card__size-row {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      margin-bottom: 8px;
-      font-size: 11px;
-    }
-
-    .prio-card__size-row select {
-      font-size: 11px;
-      padding: 2px 4px;
-      border-radius: 4px;
-      border: 1px solid var(--border);
-    }
-
     /* Card color backgrounds */
     .card-color-blue {
       background: #eef4ff;
@@ -1137,25 +1053,6 @@
       border-color: #fed7aa;
     }
 
-    .size-badge {
-      display: inline-block;
-      font-family: var(--font-mono);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      padding: 1px 5px;
-      border-radius: 3px;
-      background: #f3e8ff;
-      color: #7c3aed;
-      white-space: nowrap;
-      margin-top: 3px;
-    }
-    .size-badge.size-L,
-    .size-badge.size-XL {
-      background: #fef3c7;
-      color: #b45309;
-    }
-
     /* Committed release badge */
     .release-badge {
       display: inline-block;
@@ -1167,18 +1064,6 @@
       border-radius: 3px;
       background: #dbeafe;
       color: #1d4ed8;
-      white-space: nowrap;
-      margin-top: 3px;
-    }
-
-    .assignee-badge {
-      display: inline-block;
-      font-size: 10px;
-      font-weight: 500;
-      padding: 1px 6px;
-      border-radius: 3px;
-      background: #fef3c7;
-      color: #92400e;
       white-space: nowrap;
       margin-top: 3px;
     }
@@ -1253,8 +1138,7 @@
     <nav class="tabs" role="tablist" aria-label="Roadmap phases">
       <button class="tab is-active" role="tab" aria-selected="true"  data-view="0">Before</button>
       <button class="tab"           role="tab" aria-selected="false" data-view="1">Vote topics</button>
-      <button class="tab"           role="tab" aria-selected="false" data-view="2">Break Down</button>
-      <button class="tab"           role="tab" aria-selected="false" data-view="3">Prioritise</button>
+      <button class="tab"           role="tab" aria-selected="false" data-view="2">Prioritise</button>
     </nav>
   </header>
 
@@ -1293,28 +1177,15 @@
                 <div class="manual-entry" style="flex-direction:column;">
                   <input type="text" id="manual-card-input" placeholder="Card title…" autocomplete="off" />
                   <input type="text" id="manual-desc-input" placeholder="Description (optional)…" autocomplete="off" />
-                  <div id="manual-cat-wrapper" style="display:flex;gap:6px;align-items:center;">
-                    <select id="manual-cat-input" style="font-family:var(--font);font-size:12px;border:1px solid var(--border);border-radius:var(--radius-sm);padding:5px 8px;background:var(--bg-card);color:var(--text-primary);">
-                      <option value="">Category…</option>
-                      <option value="__new__">+ New category…</option>
-                    </select>
-                    <input type="text" id="manual-cat-new" placeholder="Type new category…" autocomplete="off" style="display:none;font-size:12px;" />
-                  </div>
-                  <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+                  <input type="text" id="manual-cat-input" placeholder="Category (e.g. Platform, UX…)" autocomplete="off" />
+                  <div style="display:flex;gap:8px;align-items:center;">
                     <select id="manual-color-input" style="font-family:var(--font);font-size:12px;border:1px solid var(--border);border-radius:var(--radius-sm);padding:5px 8px;background:var(--bg-card);color:var(--text-primary);">
                       <option value="">No color tag</option>
-                      <option value="blue">Blue (Prioritized last quarter)</option>
+                      <option value="blue">Blue (Prioritized)</option>
                       <option value="grey">Grey (Backlog)</option>
                       <option value="yellow">Yellow (Untagged)</option>
                       <option value="green">Green (Done)</option>
                       <option value="orange">Orange (Late/Pushed)</option>
-                    </select>
-                    <select id="manual-size-input" style="font-family:var(--font);font-size:12px;border:1px solid var(--border);border-radius:var(--radius-sm);padding:5px 8px;background:var(--bg-card);color:var(--text-primary);">
-                      <option value="">No size</option>
-                      <option value="S">S</option>
-                      <option value="M">M</option>
-                      <option value="L">L</option>
-                      <option value="XL">XL</option>
                     </select>
                     <input type="text" id="manual-release-input" placeholder="Committed release (e.g. Jul-26)" autocomplete="off" style="width:180px;" />
                   </div>
@@ -1347,19 +1218,9 @@
       <div class="toolbar" id="vote-toolbar">
         <span class="toolbar__stat" id="vote-stat">0 votes</span>
         <div class="toolbar__spacer"></div>
-        <button class="btn btn-sm" id="btn-new-card-vote">+ New Card</button>
-        <button class="btn btn-sm" id="btn-export-json-vote">Export JSON</button>
         <button class="btn btn-sm" id="btn-export-excel-vote">Export Excel</button>
         <button class="btn btn-sm" id="btn-export-html-vote">Export HTML</button>
         <button class="btn btn-sm btn-primary" id="btn-go-prio">Prioritise →</button>
-      </div>
-      <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;padding:6px 16px;font-size:11px;color:var(--text-secondary);border-bottom:1px solid var(--border);">
-        <span style="font-weight:600;">Card colors:</span>
-        <span style="display:inline-flex;align-items:center;gap:4px;"><span style="width:10px;height:10px;border-radius:2px;background:#eef4ff;border:1px solid #b8d4fe;"></span> Prioritized last quarter</span>
-        <span style="display:inline-flex;align-items:center;gap:4px;"><span style="width:10px;height:10px;border-radius:2px;background:#f3f4f6;border:1px solid #d1d5db;"></span> Backlog</span>
-        <span style="display:inline-flex;align-items:center;gap:4px;"><span style="width:10px;height:10px;border-radius:2px;background:#fefce8;border:1px solid #fde68a;"></span> Untagged</span>
-        <span style="display:inline-flex;align-items:center;gap:4px;"><span style="width:10px;height:10px;border-radius:2px;background:#ecfdf5;border:1px solid #a7f3d0;"></span> Done/Shipped</span>
-        <span style="display:inline-flex;align-items:center;gap:4px;"><span style="width:10px;height:10px;border-radius:2px;background:#fff7ed;border:1px solid #fed7aa;"></span> Late/Pushed</span>
       </div>
       <div class="vote-layout" id="vote-layout">
         <div class="vote-main" id="vote-main"></div>
@@ -1373,26 +1234,12 @@
       </div>
     </div>
 
-    <!-- View 2 — Break Down -->
+    <!-- View 2 — Prioritise -->
     <div class="view" id="view-2" role="tabpanel">
-      <div class="toolbar">
-        <span style="font-size:12px;color:var(--text-secondary)">Break down L and XL items into smaller sub-cards</span>
-        <div class="toolbar__spacer"></div>
-        <button class="btn btn-sm" id="btn-export-json-breakdown">Export JSON</button>
-        <button class="btn btn-sm" id="btn-export-excel-breakdown">Export Excel</button>
-        <button class="btn btn-sm" id="btn-export-html-breakdown">Export HTML</button>
-      </div>
-      <div id="breakdown-container" style="padding:16px;overflow-y:auto;"></div>
-    </div>
-
-    <!-- View 3 — Prioritise -->
-    <div class="view" id="view-3" role="tabpanel">
       <div class="toolbar" id="prio-toolbar">
         <span style="font-size:12px;color:var(--text-secondary)">Drag cards into releases to build your roadmap</span>
         <div class="toolbar__spacer"></div>
-        <button class="btn btn-sm" id="btn-new-card-prio">+ New Card</button>
         <button class="btn btn-sm" id="btn-add-release-toolbar">+ Add release</button>
-        <button class="btn btn-sm" id="btn-export-json-prio">Export JSON</button>
         <button class="btn btn-sm" id="btn-export-excel-prio">Export Excel</button>
         <button class="btn btn-sm" id="btn-export-html-prio">Export HTML</button>
       </div>
@@ -1402,34 +1249,6 @@
     </div>
 
   </main>
-
-  <!-- New Card Modal -->
-  <div id="modal-new-card" style="display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,0.35);align-items:center;justify-content:center;">
-    <div style="background:var(--bg-card);border-radius:var(--radius-md);padding:24px;width:100%;max-width:480px;box-shadow:0 8px 32px rgba(0,0,0,0.15);">
-      <div style="font-size:15px;font-weight:700;margin-bottom:16px;">New Card</div>
-      <div style="display:flex;flex-direction:column;gap:10px;">
-        <input type="text" id="modal-title" placeholder="Title" style="font-size:14px;font-weight:600;padding:8px 10px;border:1px solid var(--border);border-radius:var(--radius-sm);" />
-        <textarea id="modal-desc" placeholder="Description (optional)" style="font-size:13px;padding:8px 10px;border:1px solid var(--border);border-radius:var(--radius-sm);min-height:80px;resize:vertical;font-family:var(--font);"></textarea>
-        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
-          <select id="modal-cat" style="font-family:var(--font);font-size:12px;border:1px solid var(--border);border-radius:var(--radius-sm);padding:5px 8px;background:var(--bg-card);"></select>
-          <input type="text" id="modal-cat-new" placeholder="New category…" style="display:none;font-size:12px;width:130px;" />
-          <select id="modal-color" style="font-family:var(--font);font-size:12px;border:1px solid var(--border);border-radius:var(--radius-sm);padding:5px 8px;background:var(--bg-card);"></select>
-          <select id="modal-size" style="font-family:var(--font);font-size:12px;border:1px solid var(--border);border-radius:var(--radius-sm);padding:5px 8px;background:var(--bg-card);">
-            <option value="">No size</option>
-            <option value="S">S</option>
-            <option value="M">M</option>
-            <option value="L">L</option>
-            <option value="XL">XL</option>
-          </select>
-          <input type="text" id="modal-release" placeholder="Release (e.g. Jul-26)" style="width:140px;font-size:12px;" />
-        </div>
-        <div style="display:flex;gap:8px;margin-top:8px;">
-          <button class="btn btn-sm btn-primary" id="modal-save">Add Card</button>
-          <button class="btn btn-sm" id="modal-cancel">Cancel</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- ===================================================================
        JAVASCRIPT
@@ -1518,8 +1337,7 @@
         v.classList.toggle('is-active', i === index);
       });
       if (index === 1) renderVoteView();
-      if (index === 2) renderBreakdownView();
-      if (index === 3) renderPrioView();
+      if (index === 2) renderPrioView();
     }
 
     tabBtns.forEach(function(tab) {
@@ -1564,48 +1382,8 @@
     const manualInput = document.getElementById('manual-card-input');
     const manualDescInput = document.getElementById('manual-desc-input');
     const manualCatInput = document.getElementById('manual-cat-input');
-    const manualCatNew = document.getElementById('manual-cat-new');
     const manualColorInput = document.getElementById('manual-color-input');
-    const manualSizeInput = document.getElementById('manual-size-input');
     const manualReleaseInput = document.getElementById('manual-release-input');
-
-    // Category dropdown helper
-    var COLOR_OPTIONS_HTML = '<option value="">No color tag</option><option value="blue">Blue (Prioritized last quarter)</option><option value="grey">Grey (Backlog)</option><option value="yellow">Yellow (Untagged)</option><option value="green">Green (Done)</option><option value="orange">Orange (Late/Pushed)</option>';
-
-    function getCategories() {
-      var cats = [];
-      state.topics.forEach(function(t) {
-        if (t.category && cats.indexOf(t.category) === -1) cats.push(t.category);
-      });
-      cats.sort();
-      return cats;
-    }
-
-    function refreshCategorySelect(sel) {
-      var current = sel.value;
-      var cats = getCategories();
-      sel.innerHTML = '<option value="">Category…</option>';
-      cats.forEach(function(c) {
-        sel.innerHTML += '<option value="' + esc(c) + '">' + esc(c) + '</option>';
-      });
-      sel.innerHTML += '<option value="__new__">+ New category…</option>';
-      if (current && current !== '__new__') sel.value = current;
-    }
-
-    function getCategoryValue(sel, newInput) {
-      if (sel.value === '__new__') return newInput.value.trim() || 'Other';
-      return sel.value || 'Other';
-    }
-
-    manualCatInput.addEventListener('change', function() {
-      if (manualCatInput.value === '__new__') {
-        manualCatNew.style.display = '';
-        manualCatNew.focus();
-      } else {
-        manualCatNew.style.display = 'none';
-        manualCatNew.value = '';
-      }
-    });
     const btnAddCard = document.getElementById('btn-add-card');
     const btnClearAll = document.getElementById('btn-clear-all');
     const btnStartVoting = document.getElementById('btn-start-voting');
@@ -1664,16 +1442,7 @@
       }
       const topics = Array.isArray(data.topics) ? data.topics : [];
       topics.forEach(function(t) {
-        addTopic(t.title || 'Untitled', t.desc || t.description || '', t.category || 'Other', t.id, t.color || null, t.committedRelease || null, t.size || null);
-        var topic = state.topics.find(function(x){ return x.id === t.id; });
-        if (topic) {
-          if (t.subcards && t.subcards.length) topic.subcards = t.subcards;
-          if (t.votes) topic.votes = t.votes;
-          if (t.parked) topic.parked = true;
-          if (t.questions && t.questions.length) topic.questions = t.questions;
-          if (t.decisions && t.decisions.length) topic.decisions = t.decisions;
-          if (t.assignee) topic.assignee = t.assignee;
-        }
+        addTopic(t.title || 'Untitled', t.desc || t.description || '', t.category || 'Other', t.id, t.color || null, t.committedRelease || null);
       });
 
       // Auto-create release columns from committedRelease and assign cards
@@ -1747,7 +1516,8 @@
       markDirty();
     }
 
-    function addTopic(title, desc, category, id, color, committedRelease, size) {
+    function addTopic(title, desc, category, id, color, committedRelease) {
+      // Avoid duplicates by id
       if (id && state.topics.find(function(t){ return t.id === id; })) return;
       state.topics.push({
         id: id || uid(),
@@ -1760,11 +1530,8 @@
         parked: false,
         color: color || null,
         committedRelease: committedRelease || null,
-        size: size || null,
-        assignee: null,
-        subcards: [],
       });
-      getCatColour(category || 'Other');
+      getCatColour(category || 'Other'); // ensure colour assigned
     }
 
     // Manual card entry
@@ -1772,16 +1539,12 @@
       const val = manualInput.value.trim();
       if (!val) return;
       const desc = manualDescInput.value.trim();
-      const cat = getCategoryValue(manualCatInput, manualCatNew);
+      const cat = manualCatInput.value.trim() || 'Other';
       const color = manualColorInput.value || null;
-      const size = manualSizeInput.value || null;
       const release = manualReleaseInput.value.trim() || null;
-      addTopic(val, desc, cat, null, color, release, size);
+      addTopic(val, desc, cat, null, color, release);
       manualInput.value = '';
       manualDescInput.value = '';
-      manualCatNew.value = '';
-      manualCatNew.style.display = 'none';
-      refreshCategorySelect(manualCatInput);
       renderPreview();
       markDirty();
       manualInput.focus();
@@ -1816,18 +1579,11 @@
           var obj = { id: t.id, title: t.title, desc: t.desc, category: t.category };
           if (t.color) obj.color = t.color;
           if (t.committedRelease) obj.committedRelease = t.committedRelease;
-          if (t.size) obj.size = t.size;
-          if (t.subcards && t.subcards.length) obj.subcards = t.subcards;
-          if (t.votes) obj.votes = t.votes;
-          if (t.parked) obj.parked = true;
-          if (t.questions && t.questions.length) obj.questions = t.questions;
-          if (t.decisions && t.decisions.length) obj.decisions = t.decisions;
-          if (t.assignee) obj.assignee = t.assignee;
           return obj;
         })
       };
       const json = JSON.stringify(data, null, 2);
-      downloadBlob(json, 'application/json', 'roadmap-session-' + state.sessionDate + '.json');
+      downloadBlob(json, 'application/json', 'roadmap-cards-' + state.sessionDate + '.json');
     });
 
     // Start voting
@@ -1843,8 +1599,6 @@
       const emptyEl = document.getElementById('preview-empty');
       const summary = document.getElementById('preview-summary');
       const btnExportJson = document.getElementById('btn-export-json');
-
-      refreshCategorySelect(manualCatInput);
 
       const topics = state.topics;
       btnClearAll.style.display = topics.length ? '' : 'none';
@@ -1983,6 +1737,7 @@
 
         const hdr = document.createElement('div');
         hdr.className = 'cat-group__header';
+        hdr.style.background = colour.bg;
         hdr.innerHTML = '<span>' + esc(cat) + '</span><span class="cat-group__count">(' + groups[cat].length + ')</span>';
         groupEl.appendChild(hdr);
 
@@ -2007,7 +1762,7 @@
       main.className = 'vote-card__main';
 
       const score = document.createElement('div');
-      score.className = 'vote-card__score' + (t.votes > 0 ? ' has-votes' : '');
+      score.className = 'vote-card__score';
       score.textContent = t.votes;
 
       const text = document.createElement('div');
@@ -2022,21 +1777,12 @@
       descEl.textContent = t.desc;
 
       text.appendChild(titleEl);
-      const badgeRow = document.createElement('div');
-      badgeRow.style.cssText = 'display:flex;gap:4px;flex-wrap:wrap;';
       if (t.committedRelease) {
         const relBadge = document.createElement('span');
         relBadge.className = 'release-badge';
         relBadge.textContent = t.committedRelease;
-        badgeRow.appendChild(relBadge);
+        text.appendChild(relBadge);
       }
-      if (t.size) {
-        const sizeBadge = document.createElement('span');
-        sizeBadge.className = 'size-badge size-' + t.size;
-        sizeBadge.textContent = t.size;
-        badgeRow.appendChild(sizeBadge);
-      }
-      if (badgeRow.children.length) text.appendChild(badgeRow);
       text.appendChild(descEl);
 
       // Action buttons
@@ -2138,10 +1884,7 @@
       const card = document.getElementById('vcard-' + t.id);
       if (!card) return;
       const score = card.querySelector('.vote-card__score');
-      if (score) {
-        score.textContent = t.votes;
-        score.classList.toggle('has-votes', t.votes > 0);
-      }
+      if (score) score.textContent = t.votes;
       const btnDown = card.querySelector('.btn-down');
       if (btnDown) btnDown.disabled = t.votes === 0;
     }
@@ -2233,13 +1976,6 @@
     }
 
     function enterEditMode(card, t, titleEl, descEl, btnEdit) {
-      if (card.querySelector('.edit-panel')) return;
-      card.classList.add('is-editing');
-
-      const panel = document.createElement('div');
-      panel.className = 'edit-panel';
-      panel.style.cssText = 'padding:8px 0;';
-
       const inpTitle = document.createElement('input');
       inpTitle.className = 'edit-input';
       inpTitle.value = t.title;
@@ -2248,197 +1984,66 @@
       inpDesc.className = 'edit-textarea';
       inpDesc.value = t.desc;
 
-      const row1 = document.createElement('div');
-      row1.className = 'edit-row';
-      var lblCat = document.createElement('span'); lblCat.className = 'edit-label'; lblCat.textContent = 'Category:';
-      const selCat = document.createElement('select');
-      refreshCategorySelect(selCat);
-      selCat.value = t.category || '';
-      const editCatNew = document.createElement('input');
-      editCatNew.type = 'text'; editCatNew.placeholder = 'New category…'; editCatNew.style.cssText = 'display:none;width:110px;';
-      selCat.addEventListener('change', function() {
-        if (selCat.value === '__new__') { editCatNew.style.display = ''; editCatNew.focus(); }
-        else { editCatNew.style.display = 'none'; editCatNew.value = ''; }
-      });
-      var lblColor = document.createElement('span'); lblColor.className = 'edit-label'; lblColor.textContent = 'Color:';
-      const selColor = document.createElement('select');
-      selColor.innerHTML = COLOR_OPTIONS_HTML;
-      selColor.value = t.color || '';
-      var lblSize = document.createElement('span'); lblSize.className = 'edit-label'; lblSize.textContent = 'Size:';
-      const selSize = document.createElement('select');
-      selSize.innerHTML = '<option value="">None</option><option value="S">S</option><option value="M">M</option><option value="L">L</option><option value="XL">XL</option>';
-      selSize.value = t.size || '';
-      var lblRel = document.createElement('span'); lblRel.className = 'edit-label'; lblRel.textContent = 'Release:';
-      const inpRelease = document.createElement('input');
-      inpRelease.type = 'text'; inpRelease.placeholder = 'e.g. Jul-26'; inpRelease.style.width = '90px';
-      inpRelease.value = t.committedRelease || '';
-      row1.appendChild(lblCat); row1.appendChild(selCat); row1.appendChild(editCatNew);
-      row1.appendChild(lblColor); row1.appendChild(selColor);
-      row1.appendChild(lblSize); row1.appendChild(selSize);
-      row1.appendChild(lblRel); row1.appendChild(inpRelease);
+      titleEl.style.display = 'none';
+      descEl.style.display = 'none';
 
-      const actions = document.createElement('div');
-      actions.className = 'edit-actions';
-      const btnSave = document.createElement('button');
-      btnSave.className = 'btn btn-sm btn-primary';
-      btnSave.textContent = 'Save';
-      const btnCancel = document.createElement('button');
-      btnCancel.className = 'btn btn-sm';
-      btnCancel.textContent = 'Cancel';
-      actions.appendChild(btnSave); actions.appendChild(btnCancel);
-
-      panel.appendChild(inpTitle);
-      panel.appendChild(inpDesc);
-      panel.appendChild(row1);
-      panel.appendChild(actions);
-
-      // Hide original content
       const textDiv = card.querySelector('.vote-card__text');
-      textDiv.style.display = 'none';
-      card.querySelector('.vote-card__main').appendChild(panel);
+      textDiv.insertBefore(inpTitle, titleEl);
+      textDiv.insertBefore(inpDesc, descEl);
       inpTitle.focus();
 
       function save() {
         t.title = inpTitle.value.trim() || t.title;
-        t.desc = inpDesc.value.trim();
-        t.category = getCategoryValue(selCat, editCatNew);
-        t.color = selColor.value || null;
-        t.size = selSize.value || null;
-        t.committedRelease = inpRelease.value.trim() || null;
-        getCatColour(t.category);
+        t.desc  = inpDesc.value.trim();
+        titleEl.textContent = t.title;
+        descEl.textContent  = t.desc;
+        titleEl.style.display = '';
+        descEl.style.display  = '';
+        inpTitle.remove();
+        inpDesc.remove();
         markDirty();
-        renderVoteView();
       }
 
       function cancel() {
-        card.classList.remove('is-editing');
-        textDiv.style.display = '';
-        panel.remove();
+        titleEl.style.display = '';
+        descEl.style.display  = '';
+        inpTitle.remove();
+        inpDesc.remove();
       }
 
-      btnSave.addEventListener('click', save);
-      btnCancel.addEventListener('click', cancel);
       inpTitle.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') { e.preventDefault(); save(); }
         if (e.key === 'Escape') { e.preventDefault(); cancel(); }
       });
       inpDesc.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') { e.preventDefault(); cancel(); }
       });
+
+      // Save when focus leaves both inputs
+      function onFocusOut(e) {
+        setTimeout(function() {
+          if (document.activeElement !== inpTitle && document.activeElement !== inpDesc) {
+            inpTitle.removeEventListener('focusout', onFocusOut);
+            inpDesc.removeEventListener('focusout', onFocusOut);
+            if (document.contains(inpTitle)) save();
+          }
+        }, 100);
+      }
+      inpTitle.addEventListener('focusout', onFocusOut);
+      inpDesc.addEventListener('focusout', onFocusOut);
     }
 
     // Vote toolbar buttons
     document.getElementById('btn-export-excel-vote').addEventListener('click', downloadExcel);
     document.getElementById('btn-export-html-vote').addEventListener('click', downloadSessionHTML);
-    document.getElementById('btn-export-json-vote').addEventListener('click', function() {
-      const data = {
-        sessionName: state.sessionName,
-        date: state.sessionDate,
-        topics: state.topics.map(function(t) {
-          var obj = { id: t.id, title: t.title, desc: t.desc, category: t.category };
-          if (t.color) obj.color = t.color;
-          if (t.committedRelease) obj.committedRelease = t.committedRelease;
-          if (t.size) obj.size = t.size;
-          if (t.subcards && t.subcards.length) obj.subcards = t.subcards;
-          if (t.votes) obj.votes = t.votes;
-          if (t.parked) obj.parked = true;
-          if (t.questions && t.questions.length) obj.questions = t.questions;
-          if (t.decisions && t.decisions.length) obj.decisions = t.decisions;
-          if (t.assignee) obj.assignee = t.assignee;
-          return obj;
-        })
-      };
-      downloadBlob(JSON.stringify(data, null, 2), 'application/json', 'roadmap-session-' + state.sessionDate + '.json');
-    });
-    document.getElementById('btn-go-prio').addEventListener('click', function() { activateTab(3); });
-
-    // New Card modal
-    var modal = document.getElementById('modal-new-card');
-    var modalCat = document.getElementById('modal-cat');
-    var modalCatNew = document.getElementById('modal-cat-new');
-    var modalColor = document.getElementById('modal-color');
-    modalColor.innerHTML = COLOR_OPTIONS_HTML;
-    var modalSource = 'vote';
-
-    modalCat.addEventListener('change', function() {
-      if (modalCat.value === '__new__') { modalCatNew.style.display = ''; modalCatNew.focus(); }
-      else { modalCatNew.style.display = 'none'; modalCatNew.value = ''; }
-    });
-
-    function openNewCardModal(source) {
-      modalSource = source || 'vote';
-      refreshCategorySelect(modalCat);
-      modalColor.value = '';
-      document.getElementById('modal-title').value = '';
-      document.getElementById('modal-desc').value = '';
-      document.getElementById('modal-size').value = '';
-      document.getElementById('modal-release').value = '';
-      modalCatNew.value = ''; modalCatNew.style.display = 'none';
-      modal.style.display = 'flex';
-      document.getElementById('modal-title').focus();
-    }
-
-    document.getElementById('btn-new-card-vote').addEventListener('click', function() {
-      openNewCardModal('vote');
-    });
-
-    document.getElementById('btn-new-card-prio').addEventListener('click', function() {
-      openNewCardModal('prio');
-    });
-
-    document.getElementById('modal-cancel').addEventListener('click', function() {
-      modal.style.display = 'none';
-    });
-
-    modal.addEventListener('click', function(e) {
-      if (e.target === modal) modal.style.display = 'none';
-    });
-
-    document.getElementById('modal-save').addEventListener('click', function() {
-      var title = document.getElementById('modal-title').value.trim();
-      if (!title) return;
-      var desc = document.getElementById('modal-desc').value.trim();
-      var cat = getCategoryValue(modalCat, modalCatNew);
-      var color = modalColor.value || null;
-      var size = document.getElementById('modal-size').value || null;
-      var release = document.getElementById('modal-release').value.trim() || null;
-      addTopic(title, desc, cat, null, color, release, size);
-      markDirty();
-      modal.style.display = 'none';
-      if (modalSource === 'prio') {
-        renderPrioView();
-      } else {
-        renderVoteView();
-      }
-    });
+    document.getElementById('btn-go-prio').addEventListener('click', function() { activateTab(2); });
 
     // =========================================================================
     // PHASE 3 — PRIORITISE VIEW
     // =========================================================================
     // Ensure unprioritised always exists as a virtual "release" with id null
     function getVotedTopics() {
-      var results = [];
-      state.topics.forEach(function(t) {
-        if ((t.votes > 0 || t.committedRelease) && !t.parked) results.push(t);
-        if (t.subcards && t.subcards.length) {
-          t.subcards.forEach(function(sc) {
-            if (!results.find(function(r){ return r.id === sc.id; })) {
-              results.push({
-                id: sc.id,
-                title: sc.title,
-                desc: sc.desc || '',
-                category: sc.category || t.category,
-                votes: 0,
-                color: sc.color || null,
-                size: sc.size || null,
-                committedRelease: sc.committedRelease || null,
-                _isSubcard: true,
-                _parentId: t.id,
-              });
-            }
-          });
-        }
-      });
-      return results;
+      return state.topics.filter(function(t){ return (t.votes > 0 || t.committedRelease) && !t.parked; });
     }
 
     function getPlacedIds() {
@@ -2451,17 +2056,7 @@
       const wrapper = document.getElementById('prio-wrapper');
       wrapper.innerHTML = '';
 
-      // Auto-place subcards with committedRelease into matching releases
-      var voted = getVotedTopics();
-      voted.forEach(function(sc) {
-        if (!sc.committedRelease) return;
-        var rel = state.releases.find(function(r){ return r.name === sc.committedRelease; });
-        if (!rel) {
-          state.releases.push({ id: uid(), name: sc.committedRelease, cardIds: [sc.id] });
-        } else if (!rel.cardIds.includes(sc.id)) {
-          rel.cardIds.push(sc.id);
-        }
-      });
+      const voted = getVotedTopics();
       const placed = getPlacedIds();
 
       // Build header row
@@ -2687,9 +2282,7 @@
       const topRow = document.createElement('div');
       topRow.style.cssText = 'display:flex;align-items:flex-start;gap:6px;cursor:pointer;';
       topRow.innerHTML = '<span class="prio-card__title">' + esc(t.title) + '</span>'
-        + (t.assignee ? '<span class="assignee-badge">' + esc(t.assignee) + '</span>' : '')
         + (t.committedRelease ? '<span class="release-badge">' + esc(t.committedRelease) + '</span>' : '')
-        + (t.size ? '<span class="size-badge size-' + esc(t.size) + '">' + esc(t.size) + '</span>' : '')
         + '<span class="prio-card__votes">' + t.votes + '</span>';
       card.appendChild(topRow);
 
@@ -2698,92 +2291,8 @@
       descEl.textContent = t.desc;
       card.appendChild(descEl);
 
-      // Expand section with title/desc edit, size, questions, decisions
-      const expSection = document.createElement('div');
-      expSection.className = 'prio-card__expand';
-
-      // Title edit
-      const titleInput = document.createElement('input');
-      titleInput.type = 'text';
-      titleInput.value = t.title;
-      titleInput.style.cssText = 'font-size:12px;font-weight:600;padding:3px 6px;border-radius:4px;border:1px solid var(--border);width:100%;margin-bottom:6px;';
-      titleInput.addEventListener('change', function() {
-        var v = titleInput.value.trim();
-        if (v) { t.title = v; markDirty(); renderPrioView(); }
-      });
-      expSection.appendChild(titleInput);
-
-      // Description edit
-      const descInput = document.createElement('textarea');
-      descInput.value = t.desc;
-      descInput.placeholder = 'Description…';
-      descInput.style.cssText = 'font-size:11px;padding:4px 6px;border-radius:4px;border:1px solid var(--border);width:100%;min-height:48px;resize:vertical;margin-bottom:8px;font-family:var(--font);';
-      descInput.addEventListener('change', function() {
-        t.desc = descInput.value.trim();
-        markDirty();
-        renderPrioView();
-      });
-      expSection.appendChild(descInput);
-
-      // Size & Assignee row
-      const sizeRow = document.createElement('div');
-      sizeRow.className = 'prio-card__size-row';
-      const sizeLabel = document.createElement('span');
-      sizeLabel.textContent = 'Size:';
-      const selSize = document.createElement('select');
-      selSize.innerHTML = '<option value="">None</option><option value="S">S</option><option value="M">M</option><option value="L">L</option><option value="XL">XL</option>';
-      selSize.value = t.size || '';
-      selSize.addEventListener('change', function() {
-        t.size = selSize.value || null;
-        markDirty();
-        renderPrioView();
-      });
-      sizeRow.appendChild(sizeLabel);
-      sizeRow.appendChild(selSize);
-
-      const assigneeLabel = document.createElement('span');
-      assigneeLabel.textContent = 'Assignee:';
-      assigneeLabel.style.marginLeft = '12px';
-      const assigneeInput = document.createElement('input');
-      assigneeInput.type = 'text';
-      assigneeInput.placeholder = 'Name…';
-      assigneeInput.value = t.assignee || '';
-      assigneeInput.style.cssText = 'font-size:11px;padding:2px 6px;border-radius:4px;border:1px solid var(--border);width:110px;';
-      assigneeInput.addEventListener('change', function() {
-        t.assignee = assigneeInput.value.trim() || null;
-        markDirty();
-        renderPrioView();
-      });
-      sizeRow.appendChild(assigneeLabel);
-      sizeRow.appendChild(assigneeInput);
-      expSection.appendChild(sizeRow);
-
-      // Questions & Decisions
-      expSection.appendChild(buildExpandSection(t));
-      card.appendChild(expSection);
-
-      // Delete button inside expand
-      const delRow = document.createElement('div');
-      delRow.style.cssText = 'margin-top:8px;padding-top:6px;border-top:1px solid var(--border);';
-      const btnDel = document.createElement('button');
-      btnDel.className = 'btn btn-sm';
-      btnDel.style.cssText = 'color:#ef4444;border-color:#ef4444;';
-      btnDel.textContent = 'Delete card';
-      btnDel.addEventListener('click', function() {
-        if (!confirm('Delete "' + t.title + '"?')) return;
-        state.topics = state.topics.filter(function(x){ return x.id !== t.id; });
-        state.releases.forEach(function(r) {
-          r.cardIds = r.cardIds.filter(function(id){ return id !== t.id; });
-        });
-        markDirty();
-        renderPrioView();
-      });
-      delRow.appendChild(btnDel);
-      expSection.appendChild(delRow);
-
       topRow.addEventListener('click', function() {
-        var isOpen = expSection.classList.toggle('is-open');
-        descEl.classList.toggle('is-open', isOpen);
+        descEl.classList.toggle('is-open');
       });
 
       // Determine which release this card belongs to (for drag source)
@@ -2820,203 +2329,8 @@
     }
 
     document.getElementById('btn-add-release-toolbar').addEventListener('click', addRelease);
-    document.getElementById('btn-export-json-prio').addEventListener('click', function() {
-      const data = {
-        sessionName: state.sessionName,
-        date: state.sessionDate,
-        topics: state.topics.map(function(t) {
-          var obj = { id: t.id, title: t.title, desc: t.desc, category: t.category };
-          if (t.color) obj.color = t.color;
-          if (t.committedRelease) obj.committedRelease = t.committedRelease;
-          if (t.size) obj.size = t.size;
-          if (t.subcards && t.subcards.length) obj.subcards = t.subcards;
-          if (t.votes) obj.votes = t.votes;
-          if (t.parked) obj.parked = true;
-          if (t.questions && t.questions.length) obj.questions = t.questions;
-          if (t.decisions && t.decisions.length) obj.decisions = t.decisions;
-          if (t.assignee) obj.assignee = t.assignee;
-          return obj;
-        })
-      };
-      const json = JSON.stringify(data, null, 2);
-      downloadBlob(json, 'application/json', 'roadmap-session-' + state.sessionDate + '.json');
-    });
     document.getElementById('btn-export-excel-prio').addEventListener('click', downloadExcel);
     document.getElementById('btn-export-html-prio').addEventListener('click', downloadSessionHTML);
-
-    // =========================================================================
-    // BREAK DOWN VIEW (View 3)
-    // =========================================================================
-    function getLargeCards() {
-      return state.topics.filter(function(t) {
-        return (t.size === 'L' || t.size === 'XL') && (t.votes > 0 || t.committedRelease) && !t.parked;
-      });
-    }
-
-    function renderBreakdownView() {
-      const container = document.getElementById('breakdown-container');
-      container.innerHTML = '';
-      const largeCards = getLargeCards();
-
-      if (!largeCards.length) {
-        container.innerHTML = '<div style="text-align:center;padding:40px;color:var(--text-secondary);font-size:14px;">No L or XL cards to break down. Assign a size of L or XL to voted cards to see them here.</div>';
-        return;
-      }
-
-      largeCards.forEach(function(t) {
-        const section = document.createElement('div');
-        section.style.cssText = 'margin-bottom:24px;border:1px solid var(--border);border-radius:var(--radius-md);background:var(--bg-card);overflow:hidden;';
-
-        // Header
-        const header = document.createElement('div');
-        header.style.cssText = 'padding:12px 16px;background:var(--bg-surface);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;';
-        header.innerHTML = '<span class="size-badge size-' + esc(t.size) + '">' + esc(t.size) + '</span>'
-          + '<strong style="font-size:14px;">' + esc(t.title) + '</strong>'
-          + (t.committedRelease ? '<span class="release-badge">' + esc(t.committedRelease) + '</span>' : '')
-          + '<span style="flex:1;"></span>'
-          + '<span style="font-size:11px;color:var(--text-secondary);">' + esc(t.category) + '</span>';
-        section.appendChild(header);
-
-        // Description
-        if (t.desc) {
-          const descDiv = document.createElement('div');
-          descDiv.style.cssText = 'padding:8px 16px;font-size:12px;color:var(--text-secondary);border-bottom:1px solid var(--border);';
-          descDiv.textContent = t.desc;
-          section.appendChild(descDiv);
-        }
-
-        // Subcards list
-        const body = document.createElement('div');
-        body.style.cssText = 'padding:12px 16px;';
-
-        if (!t.subcards) t.subcards = [];
-
-        function renderSubcards() {
-          body.innerHTML = '';
-          t.subcards.forEach(function(sc, idx) {
-            const row = document.createElement('div');
-            row.style.cssText = 'display:flex;align-items:flex-start;gap:8px;padding:8px 10px;margin-bottom:6px;border:1px solid var(--border);border-radius:var(--radius-sm);' + (sc.color ? 'background:' + getCardBg(sc.color) + ';' : '');
-
-            const info = document.createElement('div');
-            info.style.cssText = 'flex:1;min-width:0;';
-            info.innerHTML = '<div style="font-size:13px;font-weight:600;">' + esc(sc.title) + '</div>'
-              + (sc.desc ? '<div style="font-size:11px;color:var(--text-secondary);margin-top:2px;">' + esc(sc.desc) + '</div>' : '')
-              + '<div style="display:flex;gap:4px;margin-top:4px;">'
-              + (sc.size ? '<span class="size-badge size-' + esc(sc.size) + '">' + esc(sc.size) + '</span>' : '')
-              + (sc.committedRelease ? '<span class="release-badge">' + esc(sc.committedRelease) + '</span>' : '')
-              + (sc.color ? '<span style="font-size:10px;color:var(--text-secondary);">' + esc(sc.color) + '</span>' : '')
-              + '</div>';
-            row.appendChild(info);
-
-            const btnDel = document.createElement('button');
-            btnDel.className = 'btn btn-sm';
-            btnDel.textContent = '×';
-            btnDel.title = 'Remove sub-card';
-            btnDel.style.cssText = 'padding:2px 6px;font-size:14px;line-height:1;';
-            btnDel.addEventListener('click', function() {
-              t.subcards.splice(idx, 1);
-              markDirty();
-              renderSubcards();
-            });
-            row.appendChild(btnDel);
-
-            body.appendChild(row);
-          });
-
-          // Add subcard form
-          const form = document.createElement('div');
-          form.style.cssText = 'display:flex;flex-direction:column;gap:6px;margin-top:10px;padding-top:10px;border-top:1px solid var(--border);';
-
-          const inpTitle = document.createElement('input');
-          inpTitle.type = 'text'; inpTitle.placeholder = 'Sub-card title…'; inpTitle.style.cssText = 'width:100%;font-size:14px;font-weight:600;padding:6px 10px;border:1px solid var(--border);border-radius:var(--radius-sm);';
-          const inpDesc = document.createElement('textarea');
-          inpDesc.placeholder = 'Description (optional)…';
-          inpDesc.style.cssText = 'width:100%;font-size:13px;padding:6px 10px;border:1px solid var(--border);border-radius:var(--radius-sm);min-height:60px;resize:vertical;font-family:var(--font);';
-          inpDesc.addEventListener('input', function() {
-            inpDesc.style.height = 'auto';
-            inpDesc.style.height = inpDesc.scrollHeight + 'px';
-          });
-
-          const row2 = document.createElement('div');
-          row2.style.cssText = 'display:flex;gap:6px;align-items:center;flex-wrap:wrap;';
-          const selColor = document.createElement('select');
-          selColor.style.cssText = 'font-family:var(--font);font-size:11px;border:1px solid var(--border);border-radius:var(--radius-sm);padding:4px 6px;background:var(--bg-card);';
-          selColor.innerHTML = COLOR_OPTIONS_HTML;
-          const selSize = document.createElement('select');
-          selSize.style.cssText = 'font-family:var(--font);font-size:11px;border:1px solid var(--border);border-radius:var(--radius-sm);padding:4px 6px;background:var(--bg-card);';
-          selSize.innerHTML = '<option value="">Size</option><option value="S">S</option><option value="M">M</option><option value="L">L</option><option value="XL">XL</option>';
-          const inpRelease = document.createElement('input');
-          inpRelease.type = 'text'; inpRelease.placeholder = 'Release (e.g. Jul-26)'; inpRelease.style.cssText = 'width:130px;font-size:11px;';
-          const selCatBd = document.createElement('select');
-          selCatBd.style.cssText = 'font-family:var(--font);font-size:11px;border:1px solid var(--border);border-radius:var(--radius-sm);padding:4px 6px;background:var(--bg-card);';
-          refreshCategorySelect(selCatBd);
-          selCatBd.value = t.category;
-          const bdCatNew = document.createElement('input');
-          bdCatNew.type = 'text'; bdCatNew.placeholder = 'New category…'; bdCatNew.style.cssText = 'display:none;width:110px;font-size:11px;';
-          selCatBd.addEventListener('change', function() {
-            if (selCatBd.value === '__new__') { bdCatNew.style.display = ''; bdCatNew.focus(); }
-            else { bdCatNew.style.display = 'none'; bdCatNew.value = ''; }
-          });
-          const btnAdd = document.createElement('button');
-          btnAdd.className = 'btn btn-sm';
-          btnAdd.textContent = '+ Add sub-card';
-
-          btnAdd.addEventListener('click', function() {
-            var title = inpTitle.value.trim();
-            if (!title) return;
-            t.subcards.push({
-              id: uid(),
-              title: title,
-              desc: inpDesc.value.trim(),
-              category: getCategoryValue(selCatBd, bdCatNew),
-              color: selColor.value || null,
-              size: selSize.value || null,
-              committedRelease: inpRelease.value.trim() || null,
-            });
-            markDirty();
-            renderSubcards();
-          });
-          inpTitle.addEventListener('keydown', function(e){ if(e.key==='Enter') btnAdd.click(); });
-
-          row2.appendChild(selColor); row2.appendChild(selSize); row2.appendChild(inpRelease); row2.appendChild(selCatBd); row2.appendChild(bdCatNew); row2.appendChild(btnAdd);
-          form.appendChild(inpTitle); form.appendChild(inpDesc); form.appendChild(row2);
-          body.appendChild(form);
-        }
-
-        renderSubcards();
-        section.appendChild(body);
-        container.appendChild(section);
-      });
-    }
-
-    function getCardBg(color) {
-      var map = { blue: '#eef4ff', grey: '#f3f4f6', yellow: '#fefce8', green: '#ecfdf5', orange: '#fff7ed' };
-      return map[color] || 'transparent';
-    }
-
-    document.getElementById('btn-export-json-breakdown').addEventListener('click', function() {
-      const data = {
-        sessionName: state.sessionName,
-        date: state.sessionDate,
-        topics: state.topics.map(function(t) {
-          var obj = { id: t.id, title: t.title, desc: t.desc, category: t.category };
-          if (t.color) obj.color = t.color;
-          if (t.committedRelease) obj.committedRelease = t.committedRelease;
-          if (t.size) obj.size = t.size;
-          if (t.subcards && t.subcards.length) obj.subcards = t.subcards;
-          if (t.votes) obj.votes = t.votes;
-          if (t.parked) obj.parked = true;
-          if (t.questions && t.questions.length) obj.questions = t.questions;
-          if (t.decisions && t.decisions.length) obj.decisions = t.decisions;
-          if (t.assignee) obj.assignee = t.assignee;
-          return obj;
-        })
-      };
-      const json = JSON.stringify(data, null, 2);
-      downloadBlob(json, 'application/json', 'roadmap-session-' + state.sessionDate + '.json');
-    });
-    document.getElementById('btn-export-excel-breakdown').addEventListener('click', downloadExcel);
-    document.getElementById('btn-export-html-breakdown').addEventListener('click', downloadSessionHTML);
 
     // =========================================================================
     // EXPORT — HTML
