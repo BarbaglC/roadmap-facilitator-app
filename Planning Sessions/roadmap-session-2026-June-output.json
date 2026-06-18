@@ -26,6 +26,7 @@
       "desc": "As a rep, I want content displayed in the right length, format, and editorial style — rendered as clean HTML, not raw markdown blocks …so outputs feel polished and are immediately usable in client conversations",
       "category": "Pipeline & Agents",
       "color": "blue",
+      "committedRelease": "Aug-26",
       "size": "S",
       "votes": 1,
       "assignee": "Hernan"
@@ -36,6 +37,7 @@
       "desc": "As a strategic account manager or CSM, I want Moody's ratings, credit opinions, and outlook changes surfaced proactively as a first-class data source in the account dossier …so I never walk into a client meeting unaware of a rating event — clients see us as one entity\nThis will happen automatically with headless when we connect to Moody's MCP",
       "category": "Pipeline & Agents",
       "color": "blue",
+      "committedRelease": "Oct-26",
       "size": "S",
       "votes": 1,
       "decisions": [
@@ -60,6 +62,7 @@
       "desc": "As a sales rep, RM or CSM, I want the SalesRecon agent to draw on Moody's data universe via Moody's MCP, so that every insight I get is grounded in the most relevant, authoritative information available about my accounts.",
       "category": "Pipeline & Agents",
       "color": "yellow",
+      "committedRelease": "Sep-26",
       "votes": 1,
       "assignee": "Ana"
     },
@@ -69,6 +72,7 @@
       "desc": "As a sales rep, CSM, RM or AM, I want the SalesRecon agent to learn how I work and guide me through my recurring workflows with the right data already lined up, so that preparing for recurring activities (like QBRs or pipeline status review or end of week reporting) takes a fraction of the time.",
       "category": "Pipeline & Agents",
       "color": "yellow",
+      "committedRelease": "Aug-26",
       "size": "M",
       "votes": 1,
       "assignee": "HaEun"
@@ -79,6 +83,7 @@
       "desc": "As a sales rep, RM, CSM, I want to save my own artifact templates and re-run them against any account with a single click, so that recurring deliverables (like prep docs or monthly account summary) are always current without starting from scratch or looking for templates or prompts used in past. Ex Friday report for my Manager (Contact: Steve Kidd, Stuart Shapiro).\nAs a CSM or account manager, I want a pre-populated QBR intelligence package aggregating usage data, open opportunities, relationship health, risk signals, and recent interactions …so QBRs are built on substance and delivered confidently rather than assembled the night before",
       "category": "Pipeline & Agents",
       "color": "yellow",
+      "committedRelease": "Sep-26",
       "votes": 1
     },
     {
@@ -87,6 +92,7 @@
       "desc": "As a sales rep, RM, CSM, I want the great intelligence layer in SalesRecon to be available for me to use wherever I work (SalesRecon App or Copilot/Copilot Studio) so that I know I always have all the information I need at my (agent's) fingertips.",
       "category": "Pipeline & Agents",
       "color": "yellow",
+      "committedRelease": "Aug-26",
       "size": "M",
       "votes": 1,
       "assignee": "Ana"
@@ -97,6 +103,7 @@
       "desc": "As a rep, I want outputs generated faster because each pipeline type (renewal, new biz, refresh, initiation) runs independently using MAI from MAS …so reliability improves and failures in one type don't block others",
       "category": "Pipeline & Agents",
       "color": "orange",
+      "committedRelease": "Oct-26",
       "size": "M",
       "votes": 1,
       "assignee": "Marco"
@@ -107,6 +114,7 @@
       "desc": "As a rep, I want outputs generated faster because each pipeline type (renewal, new biz, refresh, initiation) runs independently and I can run only what I need when I need",
       "category": "Pipeline & Agents",
       "color": "blue",
+      "committedRelease": "Aug-26",
       "size": "M",
       "votes": 1,
       "assignee": "Aaron"
@@ -117,6 +125,7 @@
       "desc": "As a rep, I want the agent to route my question to the right tool and return a sourced, accurate, comprehensive answers irrespective of the topic …so I stop getting generic or hallucinated responses that erode trust",
       "category": "Pipeline & Agents",
       "color": "yellow",
+      "committedRelease": "Sep-26",
       "votes": 1,
       "assignee": "Noujoud"
     },
@@ -126,6 +135,7 @@
       "desc": "As a seller, I want the SalesRecon agent to draw on the content and guidance in Highspot's MCP, so that every insight is grounded in the sales enablement and GTM materials available and follows the sales processes best practices.",
       "category": "Pipeline & Agents",
       "color": "yellow",
+      "committedRelease": "Sep-26",
       "votes": 1,
       "decisions": [
         "Chiara to define what this is (scope)",
@@ -138,6 +148,7 @@
       "desc": "As a seller, I want the SalesRecon agent to have seamless access to all CRM data, including meetings, opportunitites, contracts, contacts so that I can fully benefit from my diligence in keeping CRM up to date with complete information.",
       "category": "Pipeline & Agents",
       "color": "yellow",
+      "committedRelease": "Aug-26",
       "size": "S",
       "votes": 1,
       "assignee": "Valentina"
@@ -148,6 +159,7 @@
       "desc": "As an RM, I want insights and action items to reference current dates and exclude completed milestones, so that I can act on recommendations without discovering they relate to events already in the past. As a seller, I want to filter or limit news sources to the last 3–6 months, so that suggested conversation topics are based on current market events rather than outdated articles.",
       "category": "Pipeline & Agents",
       "color": "yellow",
+      "committedRelease": "Sep-26",
       "votes": 1,
       "assignee": "Noujoud"
     },
@@ -157,6 +169,7 @@
       "desc": "As an RM or CSM, I want a landing page to help me manage my accounts — showing where to focus my attention across the full portfolio …so I arrive knowing what's urgent rather than having to review every account individually to figure out my priorities for the day",
       "category": "Relationship Dashboard",
       "color": "blue",
+      "committedRelease": "Sep-26",
       "votes": 1
     },
     {
@@ -165,6 +178,7 @@
       "desc": "As an RM, I want a portfolio landing page showing recent activity, health scores, and lifecycle-stage nudges across all my accounts today …so I arrive knowing what needs attention without digging into each account individually",
       "category": "Relationship Dashboard",
       "color": "blue",
+      "committedRelease": "Sep-26",
       "size": "M",
       "votes": 1,
       "decisions": [
@@ -179,6 +193,7 @@
       "desc": "As a strategic account manager or CSM, I want to see a relationship dashboard when I open a strategic account — group view, key contacts, and relationship health — not just topic cards …so strategic accounts feel meaningfully different from the moment I open them\nAs a CSM, I want support ticket analysis to correctly categorize case topics (e.g., modelling guidance vs. performance), so that account health signals and meeting prep are based on accurate understanding of client issues and needs.",
       "category": "Relationship Dashboard",
       "color": "blue",
+      "committedRelease": "Aug-26",
       "size": "M",
       "votes": 1,
       "decisions": [
@@ -238,6 +253,7 @@
       "desc": "TODO",
       "category": "Territory Planning",
       "color": "yellow",
+      "committedRelease": "Sep-26",
       "votes": 1,
       "assignee": "Chiara"
     },
@@ -271,6 +287,7 @@
       "desc": "As an RM, I want account intelligence to refresh automatically on a regular cadence — MAS runs at group level by default …so I always have current data without manually re-running anything",
       "category": "Research & Roll-up",
       "color": "blue",
+      "committedRelease": "Oct-26",
       "votes": 1
     },
     {
@@ -339,6 +356,7 @@
       "desc": "As a rep, I want to receive a nudge when an account at a critical lifecycle stage needs attention — the system tells me what to do, not just what's happening …so I act at the right moment instead of noticing too late\nAs a rep, I want nudges triggered by where an account sits in the relationship cycle — not generic reminders but stage-appropriate guidance …so nudges feel relevant and actionable rather than noise I learn to ignore\nAs a sales rep preparing for a client meeting, I want the system to suggest a tailored set of questions and talking points based on where my deal currently sits in the pipeline and the defined objective for this stage …so every client conversation moves the deal forward deliberately rather than being a general update call",
       "category": "Nudging & Monitoring",
       "color": "blue",
+      "committedRelease": "Aug-26",
       "size": "M",
       "votes": 1,
       "assignee": "Marco"
@@ -349,6 +367,7 @@
       "desc": "As a rep, I want my portfolio landing page to show nudges alongside account health — I arrive knowing my most important actions for today …so I start each day with a clear priority list rather than manually reviewing every account",
       "category": "Nudging & Monitoring",
       "color": "blue",
+      "committedRelease": "Sep-26",
       "votes": 1,
       "assignee": "Marco"
     },
@@ -429,10 +448,10 @@
     },
     {
       "id": "cs1",
-      "title": "[Q2][Prioritized] Account health scorecard",
-      "desc": "As a CSM, I want a continuously updated health score for my strategic account — drawing on usage trends, support ticket volume and sentiment, engagement frequency, executive sponsor activity, and time to renewal — displayed in a single view …so I can see risk building before it's too late to fix, prioritise the accounts that need intervention most, and ensure no strategic account quietly erodes while the team assumes everything is fine",
-      "category": "Customer Success",
+      "title": "[Q3][Prioritized] Account intelligence completeness scorecard",
+      "desc": "As a a userm, I want to know whether the account intelligence is complete or any key information is missing.. so that I can take the account interview and fill the gaps to make sure I cna have meaningful conversations with the agent about my account.",
       "color": "blue",
+      "committedRelease": "Oct-26",
       "votes": 1
     },
     {
@@ -441,6 +460,7 @@
       "desc": "As a CSM, I want visibility into how each user group and division within the account is actually using Moody's products — adoption rates, feature utilisation, inactive users, and usage trends over time — at both group and subsidiary level …so I can intervene proactively where adoption is low before it becomes a renewal risk, and use strong adoption data as hard evidence to defend and expand the relationship at every review",
       "category": "Customer Success",
       "color": "orange",
+      "committedRelease": "Oct-26",
       "votes": 1
     },
     {
@@ -449,6 +469,7 @@
       "desc": "As a CSM, I want a structured way to capture the specific business outcomes this client committed to when they bought, track progress against them over time, and map actual product usage to evidence of those outcomes being delivered …so every QBR and renewal conversation is anchored in demonstrated value the client recognises — not assumed value we assert — making it much harder for them to justify not renewing",
       "category": "Customer Success",
       "color": "orange",
+      "committedRelease": "Oct-26",
       "votes": 1
     },
     {
@@ -488,6 +509,7 @@
       "desc": "As a global relationship manager or CSM, I want a live map of every Moody's person engaging with every contact at my account — across business lines, regions, and teams — with the topic and dynamic of each connection …so I can coordinate our coverage instead of finding out three colleagues are independently approaching the same contact",
       "category": "Global Relationship Intelligence",
       "color": "blue",
+      "committedRelease": "Sep-26",
       "votes": 1
     },
     {
@@ -519,6 +541,7 @@
       "desc": "As a seller, I want SalesRecon to detect sunsetting solutions and automatically suggest transition conversations with feature comparisons and peer examples, so that I can proactively guide clients to newer products.",
       "category": "Others from Feedback",
       "color": "grey",
+      "committedRelease": "Oct-26",
       "votes": 1
     },
     {
@@ -552,6 +575,7 @@
       "desc": "As a seller, I want to search accounts with relevance ranking, sort companies alphabetically, and filter by status or region, so that I can quickly find and manage my followed accounts without scrolling through pages.",
       "category": "Others from Feedback",
       "color": "grey",
+      "committedRelease": "Oct-26",
       "votes": 1
     },
     {
@@ -560,6 +584,7 @@
       "desc": "As a seller, I want PDF and document uploads to work reliably (supporting files up to 100 pages, mixed text/scanned, and Word/Excel formats), so that I can enrich account context with client strategy documents.",
       "category": "Others from Feedback",
       "color": "grey",
+      "committedRelease": "Oct-26",
       "votes": 1
     },
     {
@@ -568,6 +593,7 @@
       "desc": "New tab in the Account Details\nNew information on the Home page: themes that the user can click and expand. News are presented as urls that will open in a separate tab.",
       "category": "Content & UX",
       "color": "yellow",
+      "committedRelease": "Aug-26",
       "size": "S",
       "votes": 1,
       "decisions": [
@@ -581,6 +607,7 @@
       "desc": "",
       "category": "Pipeline & Agents",
       "color": "yellow",
+      "committedRelease": "Sep-26",
       "size": "M",
       "votes": 1,
       "assignee": "Ana"
@@ -591,6 +618,7 @@
       "desc": "",
       "category": "Pipeline & Agents",
       "color": "yellow",
+      "committedRelease": "Sep-26",
       "size": "M",
       "votes": 1,
       "assignee": "HaEun"
@@ -601,6 +629,7 @@
       "desc": "Be interface to CRM to reduce low value activities",
       "category": "Content & UX",
       "color": "yellow",
+      "committedRelease": "Sep-26",
       "votes": 1
     },
     {
@@ -609,6 +638,7 @@
       "desc": "",
       "category": "Content & UX",
       "color": "blue",
+      "committedRelease": "Nov-26",
       "votes": 1
     }
   ]
